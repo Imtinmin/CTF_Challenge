@@ -1,0 +1,20 @@
+<?php
+/* Smarty version 3.1.30, created on 2019-06-23 11:43:17
+  from "09e3ab346f1530dabb94bdb3b4c44b3b3650521b" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_5d0f65d52e07c0_21204953',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5d0f65d52e07c0_21204953 (Smarty_Internal_Template $_smarty_tpl) {
+echo var_dump(urldecode(current(getallheaders())));
+}
+}

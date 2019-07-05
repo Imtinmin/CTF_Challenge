@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}
+    主页
+{% endblock %}
+{% block body %}
+    <div class="row">
+        {% for item in good %}
+            <div class="col-md-4 mb-3">
+                <div class="card text-center">
+                    <div class="card-header">
+                        {{ item.name }}
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{ item.description }}</p>
+                        <p>{{ item.price }} 积分，剩余 {{ item.amount }} 件</p>
+                        <a href="{% url 'shop:createOrder' goodid=item.id %}" class="btn btn-outline-primary btn-sm">购买</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

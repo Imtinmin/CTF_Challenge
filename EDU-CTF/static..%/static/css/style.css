@@ -1,0 +1,254 @@
+
+@font-face{
+    font-family: 'HACKED';
+    src : url('hacked.ttf');
+}
+
+.nav {
+    position: fixed;
+    border-radius: 0;
+    margin: 0;
+    z-index: 9;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    background: #3d3e3e !important;
+}
+
+.nav-in {
+    width: 1277px;
+    height: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
+.nav-link {
+    width: 250px;
+    height: 70px;
+    float: right;
+    font-size: 40px;
+    color: white;
+    margin-left: auto;
+    margin-top: 24px;
+    font-size: 19px;
+    font-family: "SF Pro TC","SF Pro Text","SF Pro Icons","PingFang TC","Helvetica Neue","Helvetica","Arial","Microsoft JhengHei",wf_SegoeUI,"Segoe UI",Segoe,"Segoe WP",Tahoma,Verdana,Ubuntu,"Bitstream Vera Sans","DejaVu Sans",Tahoma,微軟正黑體,"LiHei Pro","WenQuanYi Micro Hei","Droid Sans Fallback","AR PL UMing TW",Roboto,"Helvetica Neue","Hiragino Maru Gothic ProN",メイリオ,"ヒラギノ丸ゴ ProN W4",Meiryo,"Droid Sans",sans-serif;
+}
+
+.nav-link a {
+    color: #FFFFFF;
+    text-decoration: none;
+
+}
+
+.bd {
+    margin: 190px;   
+}
+
+.title {
+    margin-left: 10px;
+    margin-top: 15px;
+    font-size: 40px;
+    color: white;
+    font-family: 'HACKED';
+}
+
+.title a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.login {
+    float: right;
+    margin-left: auto;
+    margin-top: 23px;
+    font-size: 19px;
+    color: white;
+    font-family: "SF Pro TC","SF Pro Text","SF Pro Icons","PingFang TC","Helvetica Neue","Helvetica","Arial","Microsoft JhengHei",wf_SegoeUI,"Segoe UI",Segoe,"Segoe WP",Tahoma,Verdana,Ubuntu,"Bitstream Vera Sans","DejaVu Sans",Tahoma,微軟正黑體,"LiHei Pro","WenQuanYi Micro Hei","Droid Sans Fallback","AR PL UMing TW",Roboto,"Helvetica Neue","Hiragino Maru Gothic ProN",メイリオ,"ヒラギノ丸ゴ ProN W4",Meiryo,"Droid Sans",sans-serif;
+}
+
+.login a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.login a:hover {
+    color: #3a517a;
+    text-decoration: none;
+}
+
+.font {
+    color: white;
+    font-family: "SF Pro TC","SF Pro Text","SF Pro Icons","PingFang TC","Helvetica Neue","Helvetica","Arial","Microsoft JhengHei",wf_SegoeUI,"Segoe UI",Segoe,"Segoe WP",Tahoma,Verdana,Ubuntu,"Bitstream Vera Sans","DejaVu Sans",Tahoma,微軟正黑體,"LiHei Pro","WenQuanYi Micro Hei","Droid Sans Fallback","AR PL UMing TW",Roboto,"Helvetica Neue","Hiragino Maru Gothic ProN",メイリオ,"ヒラギノ丸ゴ ProN W4",Meiryo,"Droid Sans",sans-serif;
+}
+
+.in {
+    margin:5px;
+    border-radius:3px;
+    height: 45px;
+    width: 290px;
+    font-size: 22px;
+}
+
+.inp {
+    position: relative;
+    margin: auto;
+    width: 60%;
+    max-width: 200px;
+}
+.inp .label {
+    position: absolute;
+    top: 16px;
+    left: 0;
+    font-size: 16px;
+    color: #9098a9;
+    font-weight: 500;
+    transform-origin: 0 0;
+    transition: all 0.2s ease;
+}
+.inp .border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: #07f;
+    transform: scaleX(0);
+    transform-origin: 0 0;
+    transition: all 0.15s ease;
+}
+.inp input {
+    font-family: inherit;
+    -webkit-appearance: none;
+    width: 40%;
+    border: 0;
+    font-family: inherit;
+    padding: 12px 0;
+    height: 48px;
+    font-size: 17px;
+    font-weight: 500;
+    border-bottom: 2px solid #c8ccd4;
+    background: none;
+    border-radius: 0;
+    color: #e4fbff;
+    transition: all 0.15s ease;
+}
+.inp input:hover {
+    background: rgba(34,50,84,0.03);
+    font-family: inherit;
+}
+.inp input:not(:placeholder-shown) + span {
+    font-family: inherit;
+    color: #5a667f;
+    transform: translateY(-26px) scale(0.75);
+}
+.inp input:focus {
+    font-family: inherit;
+    background: none;
+    font-size: 30px;
+    outline: none;
+}
+.inp input:focus + span {
+    font-family: inherit;
+    color: #969799;
+    font-size:0px;
+    transform: translateY(-26px) scale(0.75);
+}
+.inp input:focus + span + .border {
+    transform: scaleX(1);
+}
+
+.btn {
+    background-color: #0078e7;
+    color: white;
+    font-family: inherit;
+    border: transparent;
+    text-decoration: none;
+    border-radius: 2px;
+    padding: .5em 1em;
+    font-size: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    width: 100px;
+}
+
+.alert {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    position: relative;
+    margin-top: 1rem;
+    border-radius: .25rem;
+}
+
+.content {
+    color: white;
+    font-family: inherit;
+    font-size: 20px;
+    margin-top: 60px;
+}
+
+.team {
+    border-style: solid;
+    border-color: #0aff0a;
+    border-radius: 10px;
+    width: 100%;
+    padding: 20px;
+    margin-top: 60px;
+}
+
+.team img {
+    vertical-align:middle;
+}
+
+.team-intro {
+    color: white;
+    display: inline-block;
+    margin-left: 150px;
+    font-family: "SF Pro TC","SF Pro Text","SF Pro Icons","PingFang TC","Helvetica Neue","Helvetica","Arial","Microsoft JhengHei",wf_SegoeUI,"Segoe UI",Segoe,"Segoe WP",Tahoma,Verdana,Ubuntu,"Bitstream Vera Sans","DejaVu Sans",Tahoma,微軟正黑體,"LiHei Pro","WenQuanYi Micro Hei","Droid Sans Fallback","AR PL UMing TW",Roboto,"Helvetica Neue","Hiragino Maru Gothic ProN",メイリオ,"ヒラギノ丸ゴ ProN W4",Meiryo,"Droid Sans",sans-serif;
+}
+
+.team-intro b{
+    color: #0aff0a;
+    display: inline-block;
+    font-family: "SF Pro TC","SF Pro Text","SF Pro Icons","PingFang TC","Helvetica Neue","Helvetica","Arial","Microsoft JhengHei",wf_SegoeUI,"Segoe UI",Segoe,"Segoe WP",Tahoma,Verdana,Ubuntu,"Bitstream Vera Sans","DejaVu Sans",Tahoma,微軟正黑體,"LiHei Pro","WenQuanYi Micro Hei","Droid Sans Fallback","AR PL UMing TW",Roboto,"Helvetica Neue","Hiragino Maru Gothic ProN",メイリオ,"ヒラギノ丸ゴ ProN W4",Meiryo,"Droid Sans",sans-serif;
+}
+.team hr {
+    border-color: #0aff0a;
+}
+
+
+.art-form {
+    margin-top: 120px;
+    padding: 25px;
+    border-radius: 20px;
+    -webkit-box-shadow:0px 0px 50px 10px #63ff00 ;
+    -moz-box-shadow:0px 0px 50px 10px #63ff00 ;
+    box-shadow:0px 0px 50px 10px #63ff00 ;
+
+}
+
+.in-title {
+    width: 500px;
+    height: 38px;
+    margin: 15px;
+ }
+ 
+ .art-form textarea {
+    width: 500px;
+    height: 300px;
+    margin: 15px;
+    border-radius: 5px;
+ }
+ 
+ .content hr {
+    color:#63ff00;
+ }

@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)https://github.com/hyperreality/ctf-writeups/tree/master/2019-asis -->
+<html lang="zh-CN" class="octotree translated-ltr octotree-show"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+  <link rel="dns-prefetch" href="https://github.githubassets.com/">
+  <link rel="dns-prefetch" href="https://avatars0.githubusercontent.com/">
+  <link rel="dns-prefetch" href="https://avatars1.githubusercontent.com/">
+  <link rel="dns-prefetch" href="https://avatars2.githubusercontent.com/">
+  <link rel="dns-prefetch" href="https://avatars3.githubusercontent.com/">
+  <link rel="dns-prefetch" href="https://github-cloud.s3.amazonaws.com/">
+  <link rel="dns-prefetch" href="https://user-images.githubusercontent.com/">
+
+
+
+  <link crossorigin="anonymous" media="all" integrity="sha512-67V2J9Se2CifJlftk9/cExHGvxd7N9b9EdGnQEpszu99Ogeecilu9jIDxoCkx3zNLfB9ArraXW0J03qyVmN0Uw==" rel="stylesheet" href="./ctf-writeups _ 2019-asis at master·hyperreality _ ctf-writeups·GitHub_files/frameworks-e7318add1f7e055d040edb0f75aaa0ba.css">
+  <link crossorigin="anonymous" media="all" integrity="sha512-MRlTIqIyb8caK5+o8llXVntXovciHyAM4qE3kWU2S7SIjAPDxYp4mE0jQp4kP5UYegy+lG9y1I6VlsdzEjb5Qw==" rel="stylesheet" href="./ctf-writeups _ 2019-asis at master·hyperreality _ ctf-writeups·GitHub_files/site-294181adec18ed639e160b96b45d17ac.css">
+    <link crossorigin="anonymous" media="all" integrity="sha512-3P571Vspzc1UUlXE1URjuTl7D7R7Nc+rrVpvTqGryUtC+VHDSExSBujZ4Zq0MCZSar/FtObOgqOcm0WP/hwzqw==" rel="stylesheet" href="./ctf-writeups _ 2019-asis at master·hyperreality _ ctf-writeups·GitHub_files/github-3068294d3d7a8d980f694e5c220c746e.css">
+    
+    
+    
+    
+
+  <meta name="viewport" content="width=device-width">
+  
+  <title>ctf-writeups / 2019-asis at master·hyperreality / ctf-writeups·GitHub</title>
+    <meta name="description" content="Contribute to hyperreality/ctf-writeups development by creating an account on GitHub.">
+    <link rel="search" type="application/opensearchdescription+xml" href="https://github.com/opensearch.xml" title="GitHub上">
+  <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub上">
+  <meta property="fb:app_id" content="1401488693436528">
+
+    <meta name="twitter:image:src" content="https://avatars0.githubusercontent.com/u/6343433?s=400&amp;v=4"><meta name="twitter:site" content="@github"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="hyperreality/ctf-writeups"><meta name="twitter:description" content="Contribute to hyperreality/ctf-writeups development by creating an account on GitHub.">
+    <meta property="og:image" content="https://avatars0.githubusercontent.com/u/6343433?s=400&amp;v=4"><meta property="og:site_name" content="GitHub"><meta property="og:type" content="object"><meta property="og:title" content="hyperreality/ctf-writeups"><meta property="og:url" content="https://github.com/hyperreality/ctf-writeups"><meta property="og:description" content="Contribute to hyperreality/ctf-writeups development by creating an account on GitHub.">
+
+  <link rel="assets" href="https://github.githubassets.com/">
+  
+  <meta name="pjax-timeout" content="1000">
+  
+  <meta name="request-id" content="C967:0E34:123C411:19D7E2D:5D185C13" data-pjax-transient="">
+
+
+  
+
+  <meta name="selected-link" value="repo_source" data-pjax-transient="">
+
+      <meta name="google-site-verification" content="KT5gs8h0wvaagLKAVWq8bbeNwnZZK1r1XQysX3xurLU">
+    <meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
+    <meta name="google-site-verification" content="GXs5KoUUkNCoaAZn7wPN-t01Pywp9M3sEjnt_3_ZWPc">
+
+  <meta name="octolytics-host" content="collector.githubapp.com"><meta name="octolytics-app-id" content="github"><meta name="octolytics-event-url" content="https://collector.githubapp.com/github-external/browser_event"><meta name="octolytics-dimension-request_id" content="C967:0E34:123C411:19D7E2D:5D185C13"><meta name="octolytics-dimension-region_edge" content="ap-southeast-1"><meta name="octolytics-dimension-region_render" content="iad">
+<meta name="analytics-location" content="/&lt;user-name&gt;/&lt;repo-name&gt;/files/disambiguate" data-pjax-transient="true">
+
+
+
+    <meta name="google-analytics" content="UA-3769691-2">
+
+
+<meta class="js-ga-set" name="dimension1" content="Logged Out">
+
+
+
+  
+
+      <meta name="hostname" content="github.com">
+    <meta name="user-login" content="">
+
+      <meta name="expected-hostname" content="github.com">
+    <meta name="js-proxy-site-detection-payload" content="N2I1Mjk0NGM3MmQ0NTljNjZjYzE3ODYyYzFkNWNhZWE2ZGUxN2Y1ZmI1NjUxOWZlYjQ4Njc0Y2Y2MjQ5MWFhY3x7InJlbW90ZV9hZGRyZXNzIjoiNDcuMjQwLjMxLjIzNyIsInJlcXVlc3RfaWQiOiJDOTY3OjBFMzQ6MTIzQzQxMToxOUQ3RTJEOjVEMTg1QzEzIiwidGltZXN0YW1wIjoxNTYxODc3NTI0LCJob3N0IjoiZ2l0aHViLmNvbSJ9">
+
+    <meta name="enabled-features" content="MARKETPLACE_FEATURED_BLOG_POSTS,MARKETPLACE_INVOICED_BILLING,MARKETPLACE_SOCIAL_PROOF_CUSTOMERS,MARKETPLACE_TRENDING_SOCIAL_PROOF,MARKETPLACE_RECOMMENDATIONS,MARKETPLACE_PULL_PANDA_HOMEPAGE,DISPLAY_COMMENTER_FULL_NAME">
+
+  <meta name="html-safe-nonce" content="a46e61f662f678bb59bb6b64ea96cb4bb8633b0b">
+
+  <meta http-equiv="x-pjax-version" content="3af93b0c6a968d47c0de05d7c77eca32">
+  
+
+      <link href="https://github.com/hyperreality/ctf-writeups/commits/master.atom" rel="alternate" title="最近提交给ctf-writeups：master" type="application/atom+xml">
+
+  <meta name="go-import" content="github.com/hyperreality/ctf-writeups git https://github.com/hyperreality/ctf-writeups.git">
+
+  <meta name="octolytics-dimension-user_id" content="6343433"><meta name="octolytics-dimension-user_login" content="hyperreality"><meta name="octolytics-dimension-repository_id" content="141935826"><meta name="octolytics-dimension-repository_nwo" content="hyperreality/ctf-writeups"><meta name="octolytics-dimension-repository_public" content="true"><meta name="octolytics-dimension-repository_is_fork" content="false"><meta name="octolytics-dimension-repository_network_root_id" content="141935826"><meta name="octolytics-dimension-repository_network_root_nwo" content="hyperreality/ctf-writeups"><meta name="octolytics-dimension-repository_explore_github_marketplace_ci_cta_shown" content="false">
+
+
+    <link rel="canonical" href="https://github.com/hyperreality/ctf-writeups/tree/master/2019-asis" data-pjax-transient="">
+
+
+  <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
+
+  <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
+
+  <link rel="mask-icon" href="https://github.githubassets.com/pinned-octocat.svg" color="#000000">
+  <link rel="icon" type="image/x-icon" class="js-site-favicon" href="https://github.githubassets.com/favicon.ico">
+
+<meta name="theme-color" content="#1e2327">
+
+
+
+
+
+  <link rel="manifest" href="https://github.com/manifest.json" crossorigin="use-credentials">
+
+  <link type="text/css" rel="stylesheet" charset="UTF-8" href="./ctf-writeups _ 2019-asis at master·hyperreality _ ctf-writeups·GitHub_files/translateelement.css"></head>
+
+  <body class="logged-out env-production min-width-lg intent-mouse">
+    
+
+  <div class="position-relative js-header-wrapper ">
+    <a href="https://github.com/hyperreality/ctf-writeups/tree/master/2019-asis#start-of-content" tabindex="1" class="px-2 py-4 bg-blue text-white show-on-focus js-skip-to-content"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">跳到内容</font></font></a>
+    <div id="js-pjax-loader-bar" class="pjax-loader-bar"><div class="progress"></div></div>
+
+    
+    
+    
+
+
+        <header class="Header-old header-logged-out  position-relative f4 py-2" role="banner" style="padding-left: 241.9965362548828px !important">
+  <div class="container-lg d-flex px-3">
+    <div class="d-flex flex-justify-between flex-items-center">
+        <a class="mr-4" href="https://github.com/" aria-label="主页" data-ga-click="(Logged out) Header, go to homepage, icon:logo-wordmark">
+          <svg height="32" class="octicon octicon-mark-github text-white" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+        </a>
+    </div>
+
+    <div class="HeaderMenu HeaderMenu--logged-out d-flex flex-justify-between flex-items-center flex-auto">
+      <div class="d-none">
+        <button class="btn-link js-details-target" type="button" aria-label="切换导航" aria-expanded="false">
+          <svg height="24" class="octicon octicon-x text-gray" viewBox="0 0 12 16" version="1.1" width="18" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"></path></svg>
+        </button>
+      </div>
+
+        <nav class="mt-0" aria-label="全球">
+          <ul class="d-flex list-style-none">
+              <li class=" mr-3 mr-lg-3 edge-item-fix position-relative flex-wrap flex-justify-between d-flex flex-items-center ">
+                <details class="HeaderMenu-details details-overlay details-reset width-full">
+                  <summary class="HeaderMenu-summary HeaderMenu-link px-0 py-3 border-0 no-wrap  d-inline-block"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                    为什么选择GitHub？
+                    </font></font><svg x="0px" y="0px" viewBox="0 0 14 8" xml:space="preserve" fill="none" class="icon-chevon-down-mktg position-relative">
+                      <path d="M1,1l6.2,6L13,1"></path>
+                    </svg>
+                  </summary>
+                  <div class="dropdown-menu flex-auto rounded-1 bg-white px-0 mt-0  p-4 left-n4 position-absolute">
+                    <a href="https://github.com/features" class="py-2 lh-condensed-ultra d-block link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Features"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">特点</font></font><span class="Bump-link-symbol float-right text-normal text-gray-light"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">→</font></font></span></a>
+                    <ul class="list-style-none f5 pb-3">
+                      <li class="edge-item-fix"><a href="https://github.com/features/code-review/" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Code review"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">代码审查</font></font></a></li>
+                      <li class="edge-item-fix"><a href="https://github.com/features/project-management/" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Project management"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">项目管理</font></font></a></li>
+                      <li class="edge-item-fix"><a href="https://github.com/features/integrations" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Integrations"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">集成</font></font></a></li>
+                      <li class="edge-item-fix"><a href="https://github.com/features/actions" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Actions"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">操作</font></font></a>
+                          </li><li class="edge-item-fix"><a href="https://github.com/features/package-registry" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Package Registry"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">包注册表</font></font></a>
+                      </li><li class="edge-item-fix"><a href="https://github.com/features#team-management" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Team management"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">团队管理</font></font></a></li>
+                      <li class="edge-item-fix"><a href="https://github.com/features#social-coding" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Social coding"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">社交编码</font></font></a></li>
+                      <li class="edge-item-fix"><a href="https://github.com/features#documentation" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Documentation"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档</font></font></a></li>
+                      <li class="edge-item-fix"><a href="https://github.com/features#code-hosting" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Code hosting"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">代码托管</font></font></a></li>
+                    </ul>
+
+                    <ul class="list-style-none mb-0 border-lg-top pt-lg-3">
+                      <li class="edge-item-fix"><a href="https://github.com/customer-stories" class="py-2 lh-condensed-ultra d-block no-underline link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Customer stories"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">客户案例</font></font><span class="Bump-link-symbol float-right text-normal text-gray-light"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">→</font></font></span></a></li>
+                      <li class="edge-item-fix"><a href="https://github.com/security" class="py-2 lh-condensed-ultra d-block no-underline link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Security"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安全</font></font><span class="Bump-link-symbol float-right text-normal text-gray-light"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">→</font></font></span></a></li>
+                    </ul>
+                  </div>
+                </details>
+              </li>
+              <li class=" mr-3 mr-lg-3">
+                <a href="https://github.com/enterprise" class="HeaderMenu-link no-underline py-3 d-block d-lg-inline-block" data-ga-click="(Logged out) Header, go to Enterprise"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">企业</font></font></a>
+              </li>
+
+              <li class=" mr-3 mr-lg-3 edge-item-fix position-relative flex-wrap flex-justify-between d-flex flex-items-center ">
+                <details class="HeaderMenu-details details-overlay details-reset width-full">
+                  <summary class="HeaderMenu-summary HeaderMenu-link px-0 py-3 border-0 no-wrap  d-inline-block"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                    探索
+                    </font></font><svg x="0px" y="0px" viewBox="0 0 14 8" xml:space="preserve" fill="none" class="icon-chevon-down-mktg position-relative">
+                      <path d="M1,1l6.2,6L13,1"></path>
+                    </svg>
+                  </summary>
+
+                  <div class="dropdown-menu flex-auto rounded-1 bg-white px-0 pt-2 pb-0 mt-0  p-4 left-n4 position-absolute">
+                    <ul class="list-style-none mb-3">
+                      <li class="edge-item-fix"><a href="https://github.com/explore" class="py-2 lh-condensed-ultra d-block link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Explore"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">探索GitHub </font></font><span class="Bump-link-symbol float-right text-normal text-gray-light"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">→</font></font></span></a></li>
+                    </ul>
+
+                    <h4 class="text-gray-light text-normal text-mono f5 mb-2  border-top pt-3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">学习和贡献</font></font></h4>
+                    <ul class="list-style-none mb-3">
+                      <li class="edge-item-fix"><a href="https://github.com/topics" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Topics"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">话题</font></font></a></li>
+                        <li class="edge-item-fix"><a href="https://github.com/collections" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Collections"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">集合</font></font></a></li>
+                      <li class="edge-item-fix"><a href="https://github.com/trending" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Trending"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">趋势</font></font></a></li>
+                      <li class="edge-item-fix"><a href="https://lab.github.com/" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Learning lab"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">学习实验室</font></font></a></li>
+                      <li class="edge-item-fix"><a href="https://opensource.guide/" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Open source guides"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开源指南</font></font></a></li>
+                    </ul>
+
+                    <h4 class="text-gray-light text-normal text-mono f5 mb-2  border-top pt-3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">与他人联系</font></font></h4>
+                    <ul class="list-style-none mb-0">
+                      <li class="edge-item-fix"><a href="https://github.com/events" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Events"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">活动</font></font></a></li>
+                      <li class="edge-item-fix"><a href="https://github.community/" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Community forum"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">社区论坛</font></font></a></li>
+                      <li class="edge-item-fix"><a href="https://education.github.com/" class="py-2 pb-0 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to GitHub Education"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GitHub教育</font></font></a></li>
+                    </ul>
+                  </div>
+                </details>
+              </li>
+
+              <li class=" mr-3 mr-lg-3">
+                <a href="https://github.com/marketplace" class="HeaderMenu-link no-underline py-3 d-block d-lg-inline-block" data-ga-click="(Logged out) Header, go to Marketplace"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">市井</font></font></a>
+              </li>
+
+              <li class=" mr-3 mr-lg-3 edge-item-fix position-relative flex-wrap flex-justify-between d-flex flex-items-center ">
+                <details class="HeaderMenu-details details-overlay details-reset width-full">
+                  <summary class="HeaderMenu-summary HeaderMenu-link px-0 py-3 border-0 no-wrap  d-inline-block"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                    价钱
+                    </font></font><svg x="0px" y="0px" viewBox="0 0 14 8" xml:space="preserve" fill="none" class="icon-chevon-down-mktg position-relative">
+                       <path d="M1,1l6.2,6L13,1"></path>
+                    </svg>
+                  </summary>
+
+                  <div class="dropdown-menu flex-auto rounded-1 bg-white px-0 pt-2 pb-4 mt-0  p-4 left-n4 position-absolute">
+                    <a href="https://github.com/pricing" class="pb-2 lh-condensed-ultra d-block link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Pricing"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">计划</font></font><span class="Bump-link-symbol float-right text-normal text-gray-light"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">→</font></font></span></a>
+
+                    <ul class="list-style-none mb-3">
+                      <li class="edge-item-fix"><a href="https://github.com/pricing#feature-comparison" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Compare plans"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">比较计划</font></font></a></li>
+                      <li class="edge-item-fix"><a href="https://enterprise.github.com/contact" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Contact Sales"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">联系销售人员</font></font></a></li>
+                    </ul>
+
+                    <ul class="list-style-none mb-0  border-top pt-3">
+                      <li class="edge-item-fix"><a href="https://github.com/nonprofit" class="py-2 lh-condensed-ultra d-block no-underline link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Nonprofits"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">非营利组织</font></font><span class="Bump-link-symbol float-right text-normal text-gray-light"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">→</font></font></span></a></li>
+                      <li class="edge-item-fix"><a href="https://education.github.com/" class="py-2 pb-0 lh-condensed-ultra d-block no-underline link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Education"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">教育</font></font><span class="Bump-link-symbol float-right text-normal text-gray-light"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">→</font></font></span></a></li>
+                    </ul>
+                  </div>
+                </details>
+              </li>
+          </ul>
+        </nav>
+
+      <div class="d-flex flex-items-center px-0 text-center text-left">
+          <div class="d-lg-flex ">
+            <div class="header-search mr-3 scoped-search site-scoped-search js-site-search position-relative js-jump-to" role="combobox" aria-owns="jump-to-results" aria-label="搜索或跳转到" aria-haspopup="listbox" aria-expanded="false">
+  <div class="position-relative">
+    <!-- '"` --><!-- </textarea></xmp> --><form class="js-site-search-form" role="search" aria-label="现场" data-scope-type="Repository" data-scope-id="141935826" data-scoped-search-url="/hyperreality/ctf-writeups/search" data-unscoped-search-url="/search" action="https://github.com/hyperreality/ctf-writeups/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+      <label class="form-control input-sm header-search-wrapper p-0 header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center js-chromeless-input-container">
+        <input type="text" class="form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable" data-hotkey="s,/" name="q" value="" placeholder="Search" data-unscoped-placeholder="Search GitHub" data-scoped-placeholder="Search" autocapitalize="off" aria-autocomplete="list" aria-controls="jump-to-results" aria-label="搜索" data-jump-to-suggestions-path="/_graphql/GetSuggestedNavigationDestinations#csrf-token=TfonkduR5yvRK24yJ1DhoN+MDFnQbiba++dZBYqZi5cA9TgZjl8gQ/emUyLps4awvD4PLwF4ZqgJokx8NUVLjg==" spellcheck="false" autocomplete="off">
+          <input type="hidden" class="js-site-search-type-field" name="type">
+            <img src="./ctf-writeups _ 2019-asis at master·hyperreality _ ctf-writeups·GitHub_files/search-key-slash.svg" alt="" class="mr-2 header-search-key-slash">
+
+            <div class="Box position-absolute overflow-hidden d-none jump-to-suggestions js-jump-to-suggestions-container">
+              
+<ul class="d-none js-jump-to-suggestions-template-container">
+  
+
+<li class="d-flex flex-justify-start flex-items-center p-0 f5 navigation-item js-navigation-item js-jump-to-suggestion" role="option">
+  <a tabindex="-1" class="no-underline d-flex flex-auto flex-items-center jump-to-suggestions-path js-jump-to-suggestion-path js-navigation-open p-2" href="https://github.com/hyperreality/ctf-writeups/tree/master/2019-asis">
+    <div class="jump-to-octicon js-jump-to-octicon flex-shrink-0 mr-2 text-center d-none">
+      <svg height="16" width="16" class="octicon octicon-repo flex-shrink-0 js-jump-to-octicon-repo d-none" title="知识库" aria-label="知识库" viewBox="0 0 12 16" version="1.1" role="img"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"></path></svg>
+      <svg height="16" width="16" class="octicon octicon-project flex-shrink-0 js-jump-to-octicon-project d-none" title="项目" aria-label="项目" viewBox="0 0 15 16" version="1.1" role="img"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"></path></svg>
+      <svg height="16" width="16" class="octicon octicon-search flex-shrink-0 js-jump-to-octicon-search d-none" title="搜索" aria-label="搜索" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z"></path></svg>
+    </div>
+
+    <img class="avatar mr-2 flex-shrink-0 js-jump-to-suggestion-avatar d-none" alt="" aria-label="球队" src="https://github.com/hyperreality/ctf-writeups/tree/master/2019-asis" width="28" height="28">
+
+    <div class="jump-to-suggestion-name js-jump-to-suggestion-name flex-auto overflow-hidden text-left no-wrap css-truncate css-truncate-target">
+    </div>
+
+    <div class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none js-jump-to-badge-search">
+      <span class="js-jump-to-badge-search-text-default d-none" aria-label="在这个存储库中"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        在这个存储库中
+       </font></font></span>
+      <span class="js-jump-to-badge-search-text-global d-none" aria-label="在所有的GitHub中"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        所有
+       </font></font></span>
+      <span aria-hidden="true" class="d-inline-block ml-1 v-align-middle"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GitHub↵</font></font></span>
+    </div>
+
+    <div aria-hidden="true" class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none d-on-nav-focus js-jump-to-badge-jump"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      跳到
+       </font></font><span class="d-inline-block ml-1 v-align-middle"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">↵</font></font></span>
+    </div>
+  </a>
+</li>
+
+</ul>
+
+<ul class="d-none js-jump-to-no-results-template-container">
+  <li class="d-flex flex-justify-center flex-items-center f5 d-none js-jump-to-suggestion p-2">
+    <span class="text-gray"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">没有建议跳转到结果</font></font></span>
+  </li>
+</ul>
+
+<ul id="jump-to-results" role="listbox" class="p-0 m-0 js-navigation-container jump-to-suggestions-results-container js-jump-to-suggestions-results-container">
+  
+
+<li class="d-flex flex-justify-start flex-items-center p-0 f5 navigation-item js-navigation-item js-jump-to-scoped-search d-none" role="option">
+  <a tabindex="-1" class="no-underline d-flex flex-auto flex-items-center jump-to-suggestions-path js-jump-to-suggestion-path js-navigation-open p-2" href="https://github.com/hyperreality/ctf-writeups/tree/master/2019-asis">
+    <div class="jump-to-octicon js-jump-to-octicon flex-shrink-0 mr-2 text-center d-none">
+      <svg height="16" width="16" class="octicon octicon-repo flex-shrink-0 js-jump-to-octicon-repo d-none" title="知识库" aria-label="知识库" viewBox="0 0 12 16" version="1.1" role="img"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"></path></svg>
+      <svg height="16" width="16" class="octicon octicon-project flex-shrink-0 js-jump-to-octicon-project d-none" title="项目" aria-label="项目" viewBox="0 0 15 16" version="1.1" role="img"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"></path></svg>
+      <svg height="16" width="16" class="octicon octicon-search flex-shrink-0 js-jump-to-octicon-search d-none" title="搜索" aria-label="搜索" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z"></path></svg>
+    </div>
+
+    <img class="avatar mr-2 flex-shrink-0 js-jump-to-suggestion-avatar d-none" alt="" aria-label="球队" src="https://github.com/hyperreality/ctf-writeups/tree/master/2019-asis" width="28" height="28">
+
+    <div class="jump-to-suggestion-name js-jump-to-suggestion-name flex-auto overflow-hidden text-left no-wrap css-truncate css-truncate-target">
+    </div>
+
+    <div class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none js-jump-to-badge-search">
+      <span class="js-jump-to-badge-search-text-default d-none" aria-label="在这个存储库中"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        在这个存储库中
+       </font></font></span>
+      <span class="js-jump-to-badge-search-text-global d-none" aria-label="在所有的GitHub中"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        所有
+       </font></font></span>
+      <span aria-hidden="true" class="d-inline-block ml-1 v-align-middle"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GitHub↵</font></font></span>
+    </div>
+
+    <div aria-hidden="true" class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none d-on-nav-focus js-jump-to-badge-jump"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      跳到
+       </font></font><span class="d-inline-block ml-1 v-align-middle"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">↵</font></font></span>
+    </div>
+  </a>
+</li>
+
+  
+
+<li class="d-flex flex-justify-start flex-items-center p-0 f5 navigation-item js-navigation-item js-jump-to-global-search d-none" role="option">
+  <a tabindex="-1" class="no-underline d-flex flex-auto flex-items-center jump-to-suggestions-path js-jump-to-suggestion-path js-navigation-open p-2" href="https://github.com/hyperreality/ctf-writeups/tree/master/2019-asis">
+    <div class="jump-to-octicon js-jump-to-octicon flex-shrink-0 mr-2 text-center d-none">
+      <svg height="16" width="16" class="octicon octicon-repo flex-shrink-0 js-jump-to-octicon-repo d-none" title="知识库" aria-label="知识库" viewBox="0 0 12 16" version="1.1" role="img"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"></path></svg>
+      <svg height="16" width="16" class="octicon octicon-project flex-shrink-0 js-jump-to-octicon-project d-none" title="项目" aria-label="项目" viewBox="0 0 15 16" version="1.1" role="img"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"></path></svg>
+      <svg height="16" width="16" class="octicon octicon-search flex-shrink-0 js-jump-to-octicon-search d-none" title="搜索" aria-label="搜索" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z"></path></svg>
+    </div>
+
+    <img class="avatar mr-2 flex-shrink-0 js-jump-to-suggestion-avatar d-none" alt="" aria-label="球队" src="https://github.com/hyperreality/ctf-writeups/tree/master/2019-asis" width="28" height="28">
+
+    <div class="jump-to-suggestion-name js-jump-to-suggestion-name flex-auto overflow-hidden text-left no-wrap css-truncate css-truncate-target">
+    </div>
+
+    <div class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none js-jump-to-badge-search">
+      <span class="js-jump-to-badge-search-text-default d-none" aria-label="在这个存储库中"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        在这个存储库中
+       </font></font></span>
+      <span class="js-jump-to-badge-search-text-global d-none" aria-label="在所有的GitHub中"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        所有
+       </font></font></span>
+      <span aria-hidden="true" class="d-inline-block ml-1 v-align-middle"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GitHub↵</font></font></span>
+    </div>
+
+    <div aria-hidden="true" class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none d-on-nav-focus js-jump-to-badge-jump"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      跳到
+       </font></font><span class="d-inline-block ml-1 v-align-middle"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">↵</font></font></span>
+    </div>
+  </a>
+</li>
+
+
+</ul>
+
+            </div>
+      </label>
+</form>  </div>
+</div>
+
+          </div>
+
+        <a href="https://github.com/login?return_to=%2Fhyperreality%2Fctf-writeups%2Ftree%2Fmaster%2F2019-asis" class="HeaderMenu-link no-underline mr-3" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;site header menu&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;SIGN_UP&quot;,&quot;client_id&quot;:null,&quot;originating_request_id&quot;:&quot;C967:0E34:123C411:19D7E2D:5D185C13&quot;,&quot;originating_url&quot;:&quot;https://github.com/hyperreality/ctf-writeups/tree/master/2019-asis&quot;,&quot;referrer&quot;:null,&quot;user_id&quot;:null}}" data-hydro-click-hmac="8ad5a3ed4bea08db546f57165f2d5e23f1a8e9d0b47f5d450dd0648060e920a5" data-ga-click="(Logged out) Header, clicked Sign in, text:sign-in"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+          登录
+         </font></font></a>
+          <a href="https://github.com/join" class="HeaderMenu-link d-inline-block no-underline border border-gray-dark rounded-1 px-2 py-1" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;site header menu&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;SIGN_UP&quot;,&quot;client_id&quot;:null,&quot;originating_request_id&quot;:&quot;C967:0E34:123C411:19D7E2D:5D185C13&quot;,&quot;originating_url&quot;:&quot;https://github.com/hyperreality/ctf-writeups/tree/master/2019-asis&quot;,&quot;referrer&quot;:null,&quot;user_id&quot;:null}}" data-hydro-click-hmac="8ad5a3ed4bea08db546f57165f2d5e23f1a8e9d0b47f5d450dd0648060e920a5" data-ga-click="(Logged out) Header, clicked Sign up, text:sign-up"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+            注册
+          </font></font></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+  </div>
+
+  <div id="start-of-content" class="show-on-focus"></div>
+
+
+    <div id="js-flash-container">
+
+</div>
+
+
+
+  <div class="application-main " data-commit-hovercards-enabled="">
+        <div itemscope="" itemtype="http://schema.org/SoftwareSourceCode" class="">
+    <main id="js-repo-pjax-container" data-pjax-container="">
+      
+  
+
+
+
+
+
+
+  <div class="pagehead repohead instapaper_ignore readability-menu experiment-repo-nav  ">
+    <div class="repohead-details-container clearfix container">
+
+      <ul class="pagehead-actions">
+
+
+
+
+  <li>
+    
+  <a class="tooltipped tooltipped-s btn btn-sm btn-with-count" aria-label="您必须登录才能观看存储库" rel="nofollow" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;notification subscription menu watch&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;LOG_IN&quot;,&quot;client_id&quot;:null,&quot;originating_request_id&quot;:&quot;C967:0E34:123C411:19D7E2D:5D185C13&quot;,&quot;originating_url&quot;:&quot;https://github.com/hyperreality/ctf-writeups/tree/master/2019-asis&quot;,&quot;referrer&quot;:null,&quot;user_id&quot;:null}}" data-hydro-click-hmac="159fb0c82cc091fb24604832f32e3b14b8f32abd6a952026e525ff69ca936b98" href="https://github.com/login?return_to=%2Fhyperreality%2Fctf-writeups">
+    <svg class="octicon octicon-eye v-align-text-bottom" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"></path></svg><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    观看
+ </font></font></a>    <a class="social-count" href="https://github.com/hyperreality/ctf-writeups/watchers" aria-label="1位用户正在关注此存储库"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      1
+    </font></font></a>
+
+  </li>
+
+  <li>
+        <a class="btn btn-sm btn-with-count tooltipped tooltipped-s" aria-label="您必须登录才能为存储库加注星标" rel="nofollow" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;star button&quot;,&quot;repository_id&quot;:141935826,&quot;auth_type&quot;:&quot;LOG_IN&quot;,&quot;client_id&quot;:null,&quot;originating_request_id&quot;:&quot;C967:0E34:123C411:19D7E2D:5D185C13&quot;,&quot;originating_url&quot;:&quot;https://github.com/hyperreality/ctf-writeups/tree/master/2019-asis&quot;,&quot;referrer&quot;:null,&quot;user_id&quot;:null}}" data-hydro-click-hmac="2b7307c3a6bc5321e343a093a7eae5b36f9d24b27cdf157e9372abfad45a933d" href="https://github.com/login?return_to=%2Fhyperreality%2Fctf-writeups">
+      <svg class="octicon octicon-star v-align-text-bottom" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"></path></svg><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      明星
+ </font></font></a>
+    <a class="social-count js-social-count" href="https://github.com/hyperreality/ctf-writeups/stargazers" aria-label="6位用户为此存储库加了星号"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      6
+    </font></font></a>
+
+  </li>
+
+  <li>
+      <a class="btn btn-sm btn-with-count tooltipped tooltipped-s" aria-label="您必须登录才能分叉存储库" rel="nofollow" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;repo details fork button&quot;,&quot;repository_id&quot;:141935826,&quot;auth_type&quot;:&quot;LOG_IN&quot;,&quot;client_id&quot;:null,&quot;originating_request_id&quot;:&quot;C967:0E34:123C411:19D7E2D:5D185C13&quot;,&quot;originating_url&quot;:&quot;https://github.com/hyperreality/ctf-writeups/tree/master/2019-asis&quot;,&quot;referrer&quot;:null,&quot;user_id&quot;:null}}" data-hydro-click-hmac="5e1b5551b7080dc4a679181e8406acceeb0a616e63160cf9cca27bf357635a98" href="https://github.com/login?return_to=%2Fhyperreality%2Fctf-writeups">
+        <svg class="octicon octicon-repo-forked v-align-text-bottom" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path></svg><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        叉
+ </font></font></a>
+    <a href="https://github.com/hyperreality/ctf-writeups/network/members" class="social-count" aria-label="1个用户分叉此存储库"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      1
+    </font></font></a>
+  </li>
+</ul>
+
+      <h1 class="public ">
+    <svg class="octicon octicon-repo" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"></path></svg>
+  <span class="author" itemprop="author"><a class="url fn" rel="author" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=6343433" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/hyperreality"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">hyperreality</font></font></a></span><!--
+--><span class="path-divider"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> / </font></font></span><!--
+--><strong itemprop="name"><a data-pjax="#js-repo-pjax-container" href="https://github.com/hyperreality/ctf-writeups"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ctf-writeups</font></font></a></strong>
+  
+
+</h1>
+
+    </div>
+    
+<nav class="hx_reponav reponav js-repo-nav js-sidenav-container-pjax container" itemscope="" itemtype="http://schema.org/BreadcrumbList" aria-label="知识库" data-pjax="#js-repo-pjax-container">
+
+  <span itemscope="" itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+    <a class="js-selected-navigation-item selected reponav-item" itemprop="url" data-hotkey="g c" aria-current="page" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches repo_packages /hyperreality/ctf-writeups" href="https://github.com/hyperreality/ctf-writeups">
+      <svg class="octicon octicon-code" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5 3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z"></path></svg>
+      <span itemprop="name"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">代码</font></font></span>
+      <meta itemprop="position" content="1">
+</a>  </span>
+
+    <font style="vertical-align: inherit;"><span itemscope="" itemtype="http://schema.org/ListItem" itemprop="itemListElement"><a itemprop="url" data-hotkey="g i" class="js-selected-navigation-item reponav-item" data-selected-links="repo_issues repo_labels repo_milestones /hyperreality/ctf-writeups/issues" href="https://github.com/hyperreality/ctf-writeups/issues"><span itemprop="name"><font style="vertical-align: inherit;">问题</font></span></a></span><span itemscope="" itemtype="http://schema.org/ListItem" itemprop="itemListElement"><a itemprop="url" data-hotkey="g i" class="js-selected-navigation-item reponav-item" data-selected-links="repo_issues repo_labels repo_milestones /hyperreality/ctf-writeups/issues" href="https://github.com/hyperreality/ctf-writeups/issues"><span class="Counter"><font style="vertical-align: inherit;">0 </font></span></a></span><span itemscope="" itemtype="http://schema.org/ListItem" itemprop="itemListElement"><a data-hotkey="g p" itemprop="url" class="js-selected-navigation-item reponav-item" data-selected-links="repo_pulls checks /hyperreality/ctf-writeups/pulls" href="https://github.com/hyperreality/ctf-writeups/pulls"><span itemprop="name"><font style="vertical-align: inherit;">拉取请求</font></span></a></span><span itemscope="" itemtype="http://schema.org/ListItem" itemprop="itemListElement"><a data-hotkey="g p" itemprop="url" class="js-selected-navigation-item reponav-item" data-selected-links="repo_pulls checks /hyperreality/ctf-writeups/pulls" href="https://github.com/hyperreality/ctf-writeups/pulls"><span class="Counter"><font style="vertical-align: inherit;">0</font></span></a></span><a data-hotkey="g b" class="js-selected-navigation-item reponav-item" data-selected-links="repo_projects new_repo_project repo_project /hyperreality/ctf-writeups/projects" href="https://github.com/hyperreality/ctf-writeups/projects"><font style="vertical-align: inherit;"> 
+      项目
+      </font></a><a data-hotkey="g b" class="js-selected-navigation-item reponav-item" data-selected-links="repo_projects new_repo_project repo_project /hyperreality/ctf-writeups/projects" href="https://github.com/hyperreality/ctf-writeups/projects"><span class="Counter"><font style="vertical-align: inherit;"> 0</font></span></a><a data-skip-pjax="true" class="js-selected-navigation-item reponav-item" data-selected-links="security alerts policy /hyperreality/ctf-writeups/security/advisories" href="https://github.com/hyperreality/ctf-writeups/security/advisories"><font style="vertical-align: inherit;"> 
+      安全性
+</font></a><a class="js-selected-navigation-item reponav-item" data-selected-links="repo_graphs repo_contributors dependency_graph pulse people /hyperreality/ctf-writeups/pulse" href="https://github.com/hyperreality/ctf-writeups/pulse"><font style="vertical-align: inherit;">
+      见解
+</font></a></font><span itemscope="" itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+      <a itemprop="url" data-hotkey="g i" class="js-selected-navigation-item reponav-item" data-selected-links="repo_issues repo_labels repo_milestones /hyperreality/ctf-writeups/issues" href="https://github.com/hyperreality/ctf-writeups/issues">
+        <svg class="octicon octicon-issue-opened" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg>
+        <span itemprop="name"><font style="vertical-align: inherit;"></font></span>
+        <span class="Counter"><font style="vertical-align: inherit;"></font></span>
+        <meta itemprop="position" content="2">
+</a>    </span>
+
+  <span itemscope="" itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+    <a data-hotkey="g p" itemprop="url" class="js-selected-navigation-item reponav-item" data-selected-links="repo_pulls checks /hyperreality/ctf-writeups/pulls" href="https://github.com/hyperreality/ctf-writeups/pulls">
+      <svg class="octicon octicon-git-pull-request" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path></svg>
+      <span itemprop="name"><font style="vertical-align: inherit;"></font></span>
+      <span class="Counter"><font style="vertical-align: inherit;"></font></span>
+      <meta itemprop="position" content="3">
+</a>  </span>
+
+
+    <a data-hotkey="g b" class="js-selected-navigation-item reponav-item" data-selected-links="repo_projects new_repo_project repo_project /hyperreality/ctf-writeups/projects" href="https://github.com/hyperreality/ctf-writeups/projects">
+      <svg class="octicon octicon-project" viewBox="0 0 15 16" version="1.1" width="15" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"></path></svg><font style="vertical-align: inherit;"></font><span class="Counter"><font style="vertical-align: inherit;"></font></span>
+</a>
+
+
+    <a data-skip-pjax="true" class="js-selected-navigation-item reponav-item" data-selected-links="security alerts policy /hyperreality/ctf-writeups/security/advisories" href="https://github.com/hyperreality/ctf-writeups/security/advisories">
+      <svg class="octicon octicon-shield" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M0 2l7-2 7 2v6.02C14 12.69 8.69 16 7 16c-1.69 0-7-3.31-7-7.98V2zm1 .75L7 1l6 1.75v5.268C13 12.104 8.449 15 7 15c-1.449 0-6-2.896-6-6.982V2.75zm1 .75L7 2v12c-1.207 0-5-2.482-5-5.985V3.5z"></path></svg><font style="vertical-align: inherit;"></font></a>
+    <a class="js-selected-navigation-item reponav-item" data-selected-links="repo_graphs repo_contributors dependency_graph pulse people /hyperreality/ctf-writeups/pulse" href="https://github.com/hyperreality/ctf-writeups/pulse">
+      <svg class="octicon octicon-graph" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M16 14v1H0V0h1v14h15zM5 13H3V8h2v5zm4 0H7V3h2v10zm4 0h-2V6h2v7z"></path></svg><font style="vertical-align: inherit;"></font></a>
+
+</nav>
+
+
+  </div>
+<div class="container new-discussion-timeline experiment-repo-nav  ">
+  <div class="repository-content ">
+
+    
+    
+  <div class="file-navigation">
+    
+<details class="details-reset details-overlay select-menu branch-select-menu float-left hx_rsm" id="branch-select-menu">
+  <summary class="btn btn-sm select-menu-button css-truncate" data-hotkey="w" title="切换分支或标签" aria-haspopup="menu">
+    <i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">科：</font></font></i>
+    <span class="css-truncate-target"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">硕士</font></font></span>
+  </summary>
+
+  <details-menu class="select-menu-modal hx_rsm-modal position-absolute" style="z-index: 99;" src="/hyperreality/ctf-writeups/ref-list/master/2019-asis?source_action=disambiguate&amp;source_controller=files" preload="" role="menu">
+    <include-fragment class="select-menu-loading-overlay anim-pulse">
+      <svg height="32" class="octicon octicon-octoface" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M14.7 5.34c.13-.32.55-1.59-.13-3.31 0 0-1.05-.33-3.44 1.3-1-.28-2.07-.32-3.13-.32s-2.13.04-3.13.32c-2.39-1.64-3.44-1.3-3.44-1.3-.68 1.72-.26 2.99-.13 3.31C.49 6.21 0 7.33 0 8.69 0 13.84 3.33 15 7.98 15S16 13.84 16 8.69c0-1.36-.49-2.48-1.3-3.35zM8 14.02c-3.3 0-5.98-.15-5.98-3.35 0-.76.38-1.48 1.02-2.07 1.07-.98 2.9-.46 4.96-.46 2.07 0 3.88-.52 4.96.46.65.59 1.02 1.3 1.02 2.07 0 3.19-2.68 3.35-5.98 3.35zM5.49 9.01c-.66 0-1.2.8-1.2 1.78s.54 1.79 1.2 1.79c.66 0 1.2-.8 1.2-1.79s-.54-1.78-1.2-1.78zm5.02 0c-.66 0-1.2.79-1.2 1.78s.54 1.79 1.2 1.79c.66 0 1.2-.8 1.2-1.79s-.53-1.78-1.2-1.78z"></path></svg>
+    </include-fragment>
+  </details-menu>
+</details>
+
+    <div class="BtnGroup float-right">
+      
+  <button class="btn btn-sm BtnGroup-item disabled tooltipped tooltipped-n" aria-label="您必须登录才能提出或提出更改" type="button"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    创建新文件
+  </font></font></button>
+
+
+
+      <a href="https://github.com/hyperreality/ctf-writeups/find/master" data-pjax="" data-hotkey="t" class="js-pjax-capture-input btn btn-sm BtnGroup-item empty-icon"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        查找文件
+       </font></font></a>
+      <a href="https://github.com/hyperreality/ctf-writeups/commits/master/2019-asis" class="btn btn-sm BtnGroup-item empty-icon tooltipped tooltipped-nw" aria-label="浏览此分支的提交"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        历史记录
+      </font></font></a>
+    </div>
+    <div class="breadcrumb mb-2"><span class="js-repo-root text-bold"><span class="js-path-segment"><a data-pjax="true" href="https://github.com/hyperreality/ctf-writeups"><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ctf-writeups</font></font></span></a></span></span><span class="separator"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> /</font></font></span><strong class="final-path"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2019-asis</font></font></strong><span class="separator"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">/</font></font></span></div>
+  </div>
+
+  
+
+
+  <div class="commit-tease js-details-container Details d-flex rounded-top-1" data-issue-and-pr-hovercards-enabled="">
+    
+<div class="AvatarStack flex-self-start ">
+  <div class="AvatarStack-body" aria-label="超现实">
+        <a class="avatar" data-skip-pjax="true" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=6343433" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/hyperreality">
+          <img height="20" width="20" alt="@hyperreality" src="./ctf-writeups _ 2019-asis at master·hyperreality _ ctf-writeups·GitHub_files/6343433">
+</a>  </div>
+</div>
+
+    <div class="flex-auto f6 mr-3">
+      
+      <a href="https://github.com/hyperreality/ctf-writeups/commits?author=hyperreality" class="commit-author tooltipped tooltipped-s user-mention" aria-label="按超现实查看所有提交"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">hyperreality </font></font></a>
+
+
+  
+
+
+        <a data-pjax="true" title="对ASIS进行少量编辑" class="message text-inherit" href="https://github.com/hyperreality/ctf-writeups/commit/af8f85a10b700e5be3e8d2be4f56b6cafaa1b764"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">对ASIS进行少量编辑</font></font></a>
+
+    </div>
+    <div class="no-wrap"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      最新提交
+       </font></font><a class="commit-tease-sha" href="https://github.com/hyperreality/ctf-writeups/commit/af8f85a10b700e5be3e8d2be4f56b6cafaa1b764" data-pjax=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        af8f85a
+      </font></font></a>
+      <span itemprop="dateModified"><relative-time datetime="2019-04-23T11:37:01Z" title="2019年4月23日GMT + 8下午7:37">on 23 Apr</relative-time></span>
+    </div>
+  </div>
+
+
+
+<div class="file-wrap">
+  <a class="d-none js-permalink-shortcut" data-hotkey="y" href="https://github.com/hyperreality/ctf-writeups/tree/af8f85a10b700e5be3e8d2be4f56b6cafaa1b764/2019-asis"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">永久链接</font></font></a>
+
+  <table class="files js-navigation-container js-active-navigation-container" data-pjax="">
+    <thead>
+      <tr>
+        <th><span class="sr-only"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">类型</font></font></span></th>
+        <th><span class="sr-only"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">名称</font></font></span></th>
+        <th><span class="sr-only"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">最新提交消息</font></font></span></th>
+        <th><span class="sr-only"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">提交时间</font></font></span></th>
+      </tr>
+    </thead>
+      <tbody><tr class="up-tree js-navigation-item" aria-selected="false">
+        <td></td>
+        <td><a rel="nofollow" title="转到父目录" class="js-navigation-open" href="https://github.com/hyperreality/ctf-writeups"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">..</font></font></a></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+
+    </tbody><tbody>
+      <tr class="warning include-fragment-error">
+        <td class="icon"><svg class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></td>
+        <td class="content" colspan="3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">无法加载最新的提交信息。</font></font></td>
+      </tr>
+
+        <tr class="js-navigation-item" aria-selected="false">
+          <td class="icon">
+            <svg aria-label="文件" class="octicon octicon-file" viewBox="0 0 12 16" version="1.1" width="12" height="16" role="img"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"></path></svg>
+            <img width="16" height="16" class="spinner" alt="" src="./ctf-writeups _ 2019-asis at master·hyperreality _ ctf-writeups·GitHub_files/octocat-spinner-32.gif">
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a class="js-navigation-open" title="README.md" id="04c6e90faac2675aa89e2176d2eec7d8-227c3b812fb016aa0b98307b25efbfd0d52f2deb" href="https://github.com/hyperreality/ctf-writeups/blob/master/2019-asis/README.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">README.md</font></font></a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a data-pjax="true" title="对ASIS进行少量编辑" class="link-gray" href="https://github.com/hyperreality/ctf-writeups/commit/af8f85a10b700e5be3e8d2be4f56b6cafaa1b764"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">对ASIS进行少量编辑</font></font></a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2019-04-23T11:37:01Z" title="2019年4月23日GMT + 8下午7:37">2个月前</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item" aria-selected="false">
+          <td class="icon">
+            <svg aria-label="文件" class="octicon octicon-file" viewBox="0 0 12 16" version="1.1" width="12" height="16" role="img"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"></path></svg>
+            <img width="16" height="16" class="spinner" alt="" src="./ctf-writeups _ 2019-asis at master·hyperreality _ ctf-writeups·GitHub_files/octocat-spinner-32.gif">
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a class="js-navigation-open" title="index.png" id="cfa575bf96a962dfe1cf0ee5f7779d6a-44a40a9d83fa5840306d26e9ae44da9e9b045b73" href="https://github.com/hyperreality/ctf-writeups/blob/master/2019-asis/index.png"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">index.png</font></font></a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a data-pjax="true" title="添加ASIS独角兽写作" class="link-gray" href="https://github.com/hyperreality/ctf-writeups/commit/7c1a5610472952c566191b7c56ff005ecc843433"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">添加ASIS独角兽写作</font></font></a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2019-04-22T20:49:57Z" title="2019年4月23日GMT + 8上午4:49">2个月前</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item" aria-selected="false">
+          <td class="icon">
+            <svg aria-label="文件" class="octicon octicon-file" viewBox="0 0 12 16" version="1.1" width="12" height="16" role="img"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"></path></svg>
+            <img width="16" height="16" class="spinner" alt="" src="./ctf-writeups _ 2019-asis at master·hyperreality _ ctf-writeups·GitHub_files/octocat-spinner-32.gif">
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a class="js-navigation-open" title="source1.png" id="5a7fbbc6935833f106ed932138582a8b-74bcd379f9157bbc6ba706dfab1f6c205bfe8048" href="https://github.com/hyperreality/ctf-writeups/blob/master/2019-asis/source1.png"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">source1.png</font></font></a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a data-pjax="true" title="添加ASIS独角兽写作" class="link-gray" href="https://github.com/hyperreality/ctf-writeups/commit/7c1a5610472952c566191b7c56ff005ecc843433"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">添加ASIS独角兽写作</font></font></a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2019-04-22T20:49:57Z" title="2019年4月23日GMT + 8上午4:49">2个月前</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item navigation-focus" aria-selected="true">
+          <td class="icon">
+            <svg aria-label="文件" class="octicon octicon-file" viewBox="0 0 12 16" version="1.1" width="12" height="16" role="img"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"></path></svg>
+            <img width="16" height="16" class="spinner" alt="" src="./ctf-writeups _ 2019-asis at master·hyperreality _ ctf-writeups·GitHub_files/octocat-spinner-32.gif">
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a class="js-navigation-open" title="source2.png" id="68a79f5784e215f9afb4b510c1b1d99f-93622a2fc8cce357090ef6b81d7474f6dbd26ab5" href="https://github.com/hyperreality/ctf-writeups/blob/master/2019-asis/source2.png"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">source2.png</font></font></a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a data-pjax="true" title="添加ASIS独角兽写作" class="link-gray" href="https://github.com/hyperreality/ctf-writeups/commit/7c1a5610472952c566191b7c56ff005ecc843433"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">添加ASIS独角兽写作</font></font></a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2019-04-22T20:49:57Z" title="2019年4月23日GMT + 8上午4:49">2个月前</time-ago></span>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
+
+  <div id="readme" class="Box Box--condensed instapaper_body md js-code-block-container">
+    <div class="Box-header d-flex flex-items-center flex-justify-between px-2">
+      <h3 class="Box-title pr-3">
+        <svg class="octicon octicon-book" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z"></path></svg><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        README.md
+      </font></font></h3>
+    </div>
+      <div class="Box-body">
+        <article class="markdown-body entry-content p-5" itemprop="text"><h2><a id="user-content-unicorn-shop-26-solves" class="anchor" aria-hidden="true" href="https://github.com/hyperreality/ctf-writeups/tree/master/2019-asis#unicorn-shop-26-solves"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">独角兽商店（26个解决方案）</font></font></h2>
+<p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">团队：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> cr0wn</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">网络挑战最初似乎令人沮丧和模糊，但实际上证明是公平的，促使研究Unicode的安全考虑因素。</font></font></p>
+<h3><a id="user-content-enumeration" class="anchor" aria-hidden="true" href="https://github.com/hyperreality/ctf-writeups/tree/master/2019-asis#enumeration"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">列举</font></font></h3>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们有一个网站，上面有一个项目表，还有两个可以发布的参数：</font></font></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/hyperreality/ctf-writeups/blob/master/2019-asis/index.png"><img src="./ctf-writeups _ 2019-asis at master·hyperreality _ ctf-writeups·GitHub_files/index.png" alt="" style="max-width:100%;"></a></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">通过简单地讨论这些参数，我们发现我们可以购买前三个项目（显示独角兽的图片），但不是第四个。</font><font style="vertical-align: inherit;">我们最初猜测：</font></font></p>
+<ul>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们拥有9个硬币，因为当价格将我们发送到通用错误页面时输入10个或更多。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果我们可以购买第四件商品，我们将获得旗帜。</font></font></li>
+</ul>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">来源包含更多线索：</font></font></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/hyperreality/ctf-writeups/blob/master/2019-asis/source1.png"><img src="./ctf-writeups _ 2019-asis at master·hyperreality _ ctf-writeups·GitHub_files/source1.png" alt="" style="max-width:100%;"></a></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">显然，charset是UTF-8很重要。</font><font style="vertical-align: inherit;">这是一个奇怪的线索，因为</font></font><a href="https://w3techs.com/technologies/overview/character_encoding/all" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">超过93％的网站</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用UTF-8编码。</font><font style="vertical-align: inherit;">也许真正的提示是，将涉及将不同的字符集与UTF-8混合，或者简单地说，字符编码</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">通常</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是解决挑战的关键。</font></font></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/hyperreality/ctf-writeups/blob/master/2019-asis/source2.png"><img src="./ctf-writeups _ 2019-asis at master·hyperreality _ ctf-writeups·GitHub_files/source2.png" alt="" style="max-width:100%;"></a></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">源头的第二个线索强化了这一点。</font><font style="vertical-align: inherit;">JS试图限制我们在价格领域做任何非字母数字的事情。</font></font></p>
+<h3><a id="user-content-utf-8" class="anchor" aria-hidden="true" href="https://github.com/hyperreality/ctf-writeups/tree/master/2019-asis#utf-8"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">UTF-8</font></font></h3>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在继续之前; </font><font style="vertical-align: inherit;">简要回顾一下</font></font><a href="https://en.wikipedia.org/wiki/UTF-8" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">UTF-8</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">到目前为止，这是最流行的Unicode编码，因为它向后兼容ASCII。</font><font style="vertical-align: inherit;">它是可变宽度，根据需要使用一个，两个，三个或四个字节来表示所有1,112,064个Unicode代码点。</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">更常见的代码点位于较低范围内，因此需要较少的字节来表示，前半部分的单字节编码相当于ASCII的128个字符。</font><font style="vertical-align: inherit;">在更高的范围内，有一大堆奇怪的东西。</font><font style="vertical-align: inherit;">例如，</font></font><a href="https://www.compart.com/en/unicode/U+1F984" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Unicode独角兽</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><g-emoji class="g-emoji" alias="unicorn" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f984.png"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🦄</font></font></g-emoji><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，由四个字节0​​xF0 0x9F 0xA6 0x84表示，其可以被urlencoded为％F0％9F％A6％84。</font></font></p>
+<h3><a id="user-content-unicode--security" class="anchor" aria-hidden="true" href="https://github.com/hyperreality/ctf-writeups/tree/master/2019-asis#unicode--security"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Unicode和安全性</font></font></h3>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Unicode在理论上似乎很棒，但它有许多安全漏洞。</font><font style="vertical-align: inherit;">这些往往以软件处理代码点的不足和非标准方式存在。</font><font style="vertical-align: inherit;">最着名的情况是使用</font></font><a href="https://en.wikipedia.org/wiki/Punycode" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Punycode进行</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">域名欺骗，</font><a href="https://en.wikipedia.org/wiki/Punycode" rel="nofollow"><font style="vertical-align: inherit;">Punycode</font></a><font style="vertical-align: inherit;">是一种额外的编码方式，用于将Unicode反向移植到IDN，但还有其他一些鲜为人知的恶搞。</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们发现</font></font><a href="http://unicode.org/reports/tr36/tr36-3.html#Numeric_Spoofs" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">“Unicode技术报告”</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">对于理解Unicode可能允许的进一步滥用非常有用，“数字欺骗”部分特别相关。</font></font></p>
+<h3><a id="user-content-all-standards-accepted" class="anchor" aria-hidden="true" href="https://github.com/hyperreality/ctf-writeups/tree/master/2019-asis#all-standards-accepted"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">接受所有标准</font></font></h3>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">价格字段下方是评论“我们接受任何标准的数字面额”！</font><font style="vertical-align: inherit;">在受到上述报告的启发后，我们意识到任何脚本中的数字字符，即孟加拉语，阿拉伯语，中文等被商店接受为有效货币。</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">客户端检查只输入了字母数字字符显然没有在后端进行镜像。</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">然而，我们仍然买不起第4项，因为不同脚本中的数字值与欧洲数字的解释方式相同。</font><font style="vertical-align: inherit;">无论使用的面额或脚本如何，我们似乎仍然太穷。</font></font></p>
+<h3><a id="user-content-ethiopian-numbers" class="anchor" aria-hidden="true" href="https://github.com/hyperreality/ctf-writeups/tree/master/2019-asis#ethiopian-numbers"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">埃塞俄比亚的数字</font></font></h3>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">经过进一步的实验，我们发现在后端应用的实际检查是我们只允许提交一个字符。</font><font style="vertical-align: inherit;">我们可以通过在价格区域中输入9而不是10来购买第三只独角兽，但我们</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可以</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用Ⅹ（罗马数字为10）购买它。</font><font style="vertical-align: inherit;">这使解决方案变得清晰。</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在Unicode代码点网站中搜索“千位”会显示大量单个数字字符，这些字符可以表示数万甚至数百万的数字！</font><font style="vertical-align: inherit;">我们选择了</font></font><a href="https://www.compart.com/en/unicode/U+137C" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">“Ethiopic Number Ten Thousand”，</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">因为它的时尚外观并用它来购买第四只独角兽，并获得了旗帜。</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">最终要求：</font></font></p>
+<div class="highlight highlight-source-shell"><pre><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">卷曲</font></font><span class="pl-s"><span class="pl-pds"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">'</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> http://104.248.237.208/purchase </font></font><span class="pl-pds"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">' -</font></font></span></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">数据</font></font><span class="pl-s"><span class="pl-pds"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">'</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> id = 4＆imoney =％E1％8D％BC </font></font><span class="pl-pds"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">'</font></font></span></span></pre></div>
+</article>
+      </div>
+  </div>
+
+
+
+  </div>
+  <div class="modal-backdrop js-touch-events"></div>
+</div>
+
+    </main>
+  </div>
+  
+
+  </div>
+
+        
+<div class="footer container-lg width-full px-3" role="contentinfo">
+  <div class="position-relative d-flex flex-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+    <ul class="list-style-none d-flex flex-wrap ">
+      <li class="mr-3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">©2019 </font></font><span title="来自unicorn-86b74b56fb-8tn2d的0.12912s"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GitHub</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，Inc。</font></font></li>
+        <li class="mr-3"><a data-ga-click="Footer, go to terms, text:terms" href="https://github.com/site/terms"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">条款</font></font></a></li>
+        <li class="mr-3"><a data-ga-click="Footer, go to privacy, text:privacy" href="https://github.com/site/privacy"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">隐私</font></font></a></li>
+        <li class="mr-3"><a data-ga-click="Footer, go to security, text:security" href="https://github.com/security"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安全</font></font></a></li>
+        <li class="mr-3"><a href="https://githubstatus.com/" data-ga-click="Footer, go to status, text:status"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">状态</font></font></a></li>
+        <li><a data-ga-click="Footer, go to help, text:help" href="https://help.github.com/"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">救命</font></font></a></li>
+    </ul>
+
+    <a aria-label="主页" title="GitHub上" class="footer-octicon d-none d-lg-block mx-lg-4" href="https://github.com/">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+</a>
+   <ul class="list-style-none d-flex flex-wrap ">
+        <li class="mr-3"><a data-ga-click="Footer, go to contact, text:contact" href="https://github.com/contact"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">联系GitHub</font></font></a></li>
+        <li class="mr-3"><a href="https://github.com/pricing" data-ga-click="Footer, go to Pricing, text:Pricing"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">价钱</font></font></a></li>
+      <li class="mr-3"><a href="https://developer.github.com/" data-ga-click="Footer, go to api, text:api"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">API</font></font></a></li>
+      <li class="mr-3"><a href="https://training.github.com/" data-ga-click="Footer, go to training, text:training"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">训练</font></font></a></li>
+        <li class="mr-3"><a href="https://github.blog/" data-ga-click="Footer, go to blog, text:blog"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">博客</font></font></a></li>
+        <li><a data-ga-click="Footer, go to about, text:about" href="https://github.com/about"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关于</font></font></a></li>
+
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 text-gray-light"></span>
+  </div>
+</div>
+
+
+
+  <div id="ajax-error-message" class="ajax-error-message flash flash-error">
+    <svg class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg>
+    <button type="button" class="flash-close js-ajax-error-dismiss" aria-label="解除错误">
+      <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"></path></svg>
+    </button><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    您目前无法执行该操作。
+  </font></font></div>
+
+
+    
+    <script crossorigin="anonymous" integrity="sha512-LcoOfcAm3xWwV+pRwTOdnnM4ZYub5QxXDo8wthOGfJD7c4nc+C/RaTBoLlS/e5xSKBloJbaQEBYW13PdB0yO9w==" type="application/javascript" src="./ctf-writeups _ 2019-asis at master·hyperreality _ ctf-writeups·GitHub_files/frameworks-d4d6526c.js.下载"></script>
+    
+    <script crossorigin="anonymous" async="async" integrity="sha512-8mD3/f6p6y5x4bkl/FSAO3F/pMKM44mgVEmoMe4mwlfIL9UsbVEiE/0zcCRyA8fHoIL40YL+w4U8i1tiWmOLIw==" type="application/javascript" src="./ctf-writeups _ 2019-asis at master·hyperreality _ ctf-writeups·GitHub_files/github-bootstrap-56a00fa0.js.下载"></script>
+    
+    
+    
+  <div class="js-stale-session-flash stale-session-flash flash flash-warn flash-banner" hidden="">
+    <svg class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg>
+    <span class="signed-in-tab-flash"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">您使用其他选项卡或窗口登录。</font></font><a href="https://github.com/hyperreality/ctf-writeups/tree/master/2019-asis"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">重新加载</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以刷新您的会话。</font></font></span>
+    <span class="signed-out-tab-flash"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">您在另一个标签页或窗口中退出。</font></font><a href="https://github.com/hyperreality/ctf-writeups/tree/master/2019-asis"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">重新加载</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以刷新您的会话。</font></font></span>
+  </div>
+  <template id="site-details-dialog"></template>
+
+  <div class="Popover js-hovercard-content position-absolute" style="display: none; outline: none;" tabindex="0">
+  <div class="Popover-message Popover-message--bottom-left Popover-message--large Box box-shadow-large" style="width:360px;">
+  </div>
+</div>
+
+  <div aria-live="polite" class="js-global-screen-reader-notice sr-only"></div>
+
+  
+
+
+<div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="./ctf-writeups _ 2019-asis at master·hyperreality _ ctf-writeups·GitHub_files/translate_24dp.png" width="20" height="20" alt="Google 翻译"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">原文</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">提供更好的翻译建议</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div><nav class="octotree-sidebar octotree-github-sidebar ui-resizable" style="width: 232px;">
+    <div class="octotree-toggle">
+      <i class="octotree-toggle-icon" role="button"></i> <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Octotree</font></font></span>
+
+      
+    </div>
+
+    <a class="octotree-pin octotree-pinned" data-store="PINNED" href="javascript:void(0)">
+      <span class="tooltipped tooltipped-s" aria-label="Unpin this sidebar"> <i class="octotree-icon-pin"></i> </span>
+    </a>
+
+    <a class="octotree-settings" href="javascript:void(0)">
+      <span class="tooltipped tooltipped-s" aria-label="设置"> <i class="octotree-icon-settings"></i> </span>
+    </a>
+
+    <div class="octotree-views">
+      <div class="octotree-view octotree-tree-view current">
+        <div class="octotree-view-header"><div class="octotree-header-summary">
+          <div class="octotree-header-repo">
+            <i class="octotree-icon-repo"></i>
+            <a href="https://github.com/hyperreality"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">hyperreality</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> /
+             </font></font><a data-pjax="" href="https://github.com/hyperreality/ctf-writeups"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ctf-writeups</font></font></a>
+          </div>
+          <div class="octotree-header-branch">
+            <i class="octotree-icon-branch"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+            主
+          </font></font></div>
+        </div></div>
+        <div class="octotree-view-body jstree jstree-1 jstree-default" role="tree" tabindex="0" aria-activedescendant="octotree2018-csaw" aria-busy="false"><ul class="jstree-container-ul jstree-children jstree-wholerow-ul jstree-no-dots" role="group"><li role="treeitem" aria-selected="false" aria-level="1" aria-labelledby="octotree2018-csaw_anchor" aria-expanded="false" id="octotree2018-csaw" class="jstree-node  jstree-closed"><div unselectable="on" role="presentation" class="jstree-wholerow">&nbsp;</div><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://github.com/hyperreality/ctf-writeups/tree/master/2018-csaw" tabindex="-1" data-download-url="/hyperreality/ctf-writeups/tree/master/2018-csaw" data-download-filename="2018-csaw" id="octotree2018-csaw_anchor"><i class="jstree-icon jstree-themeicon tree jstree-themeicon-custom" role="presentation"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2018-csaw</font></font></a></li><li role="treeitem" aria-selected="false" aria-level="1" aria-labelledby="octotree2018-ctfzone_anchor" aria-expanded="false" id="octotree2018-ctfzone" class="jstree-node  jstree-closed"><div unselectable="on" role="presentation" class="jstree-wholerow">&nbsp;</div><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://github.com/hyperreality/ctf-writeups/tree/master/2018-ctfzone" tabindex="-1" data-download-url="/hyperreality/ctf-writeups/tree/master/2018-ctfzone" data-download-filename="2018-ctfzone" id="octotree2018-ctfzone_anchor"><i class="jstree-icon jstree-themeicon tree jstree-themeicon-custom" role="presentation"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2018-ctfzone</font></font></a></li><li role="treeitem" aria-selected="true" aria-level="1" aria-labelledby="octotree2019-asis_anchor" aria-expanded="true" id="octotree2019-asis" class="jstree-node jstree-open"><div unselectable="on" role="presentation" class="jstree-wholerow jstree-wholerow-clicked">&nbsp;</div><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor jstree-clicked" href="https://github.com/hyperreality/ctf-writeups/tree/master/2019-asis" tabindex="-1" data-download-url="/hyperreality/ctf-writeups/tree/master/2019-asis" data-download-filename="2019-asis" id="octotree2019-asis_anchor"><i class="jstree-icon jstree-themeicon tree jstree-themeicon-custom" role="presentation"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2019，ASIS</font></font></a><ul role="group" class="jstree-children" style=""><li role="treeitem" aria-selected="false" aria-level="2" aria-labelledby="octotree2019-asis/README.md_anchor" id="octotree2019-asis/README.md" class="jstree-node  jstree-leaf"><div unselectable="on" role="presentation" class="jstree-wholerow">&nbsp;</div><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://github.com/hyperreality/ctf-writeups/blob/master/2019-asis/README.md" tabindex="-1" data-download-url="/hyperreality/ctf-writeups/blob/master/2019-asis/README.md" data-download-filename="README.md" id="octotree2019-asis/README.md_anchor"><i class="jstree-icon jstree-themeicon blob book-icon medium-blue jstree-themeicon-custom" role="presentation"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">README.md</font></font></a></li><li role="treeitem" aria-selected="false" aria-level="2" aria-labelledby="octotree2019-asis/index.png_anchor" id="octotree2019-asis/index.png" class="jstree-node  jstree-leaf"><div unselectable="on" role="presentation" class="jstree-wholerow">&nbsp;</div><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://github.com/hyperreality/ctf-writeups/blob/master/2019-asis/index.png" tabindex="-1" data-download-url="/hyperreality/ctf-writeups/blob/master/2019-asis/index.png" data-download-filename="index.png" id="octotree2019-asis/index.png_anchor"><i class="jstree-icon jstree-themeicon blob image-icon medium-orange jstree-themeicon-custom" role="presentation"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">index.png</font></font></a></li><li role="treeitem" aria-selected="false" aria-level="2" aria-labelledby="octotree2019-asis/source1.png_anchor" id="octotree2019-asis/source1.png" class="jstree-node  jstree-leaf"><div unselectable="on" role="presentation" class="jstree-wholerow">&nbsp;</div><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://github.com/hyperreality/ctf-writeups/blob/master/2019-asis/source1.png" tabindex="-1" data-download-url="/hyperreality/ctf-writeups/blob/master/2019-asis/source1.png" data-download-filename="source1.png" id="octotree2019-asis/source1.png_anchor"><i class="jstree-icon jstree-themeicon blob image-icon medium-orange jstree-themeicon-custom" role="presentation"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">source1.png</font></font></a></li><li role="treeitem" aria-selected="false" aria-level="2" aria-labelledby="octotree2019-asis/source2.png_anchor" id="octotree2019-asis/source2.png" class="jstree-node  jstree-leaf jstree-last"><div unselectable="on" role="presentation" class="jstree-wholerow">&nbsp;</div><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://github.com/hyperreality/ctf-writeups/blob/master/2019-asis/source2.png" tabindex="-1" data-download-url="/hyperreality/ctf-writeups/blob/master/2019-asis/source2.png" data-download-filename="source2.png" id="octotree2019-asis/source2.png_anchor"><i class="jstree-icon jstree-themeicon blob image-icon medium-orange jstree-themeicon-custom" role="presentation"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">source2.png</font></font></a></li></ul></li><li role="treeitem" aria-selected="false" aria-level="1" aria-labelledby="octotree2019-codegate_anchor" aria-expanded="false" id="octotree2019-codegate" class="jstree-node  jstree-closed"><div unselectable="on" role="presentation" class="jstree-wholerow">&nbsp;</div><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://github.com/hyperreality/ctf-writeups/tree/master/2019-codegate" tabindex="-1" data-download-url="/hyperreality/ctf-writeups/tree/master/2019-codegate" data-download-filename="2019-codegate" id="octotree2019-codegate_anchor"><i class="jstree-icon jstree-themeicon tree jstree-themeicon-custom" role="presentation"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2019-codegate</font></font></a></li><li role="treeitem" aria-selected="false" aria-level="1" aria-labelledby="octotree2019-plaidctf_anchor" aria-expanded="false" id="octotree2019-plaidctf" class="jstree-node  jstree-closed"><div unselectable="on" role="presentation" class="jstree-wholerow">&nbsp;</div><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://github.com/hyperreality/ctf-writeups/tree/master/2019-plaidctf" tabindex="-1" data-download-url="/hyperreality/ctf-writeups/tree/master/2019-plaidctf" data-download-filename="2019-plaidctf" id="octotree2019-plaidctf_anchor"><i class="jstree-icon jstree-themeicon tree jstree-themeicon-custom" role="presentation"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2019-plaidctf</font></font></a></li><li role="treeitem" aria-selected="false" aria-level="1" aria-labelledby="octotreevulnhub_anchor" aria-expanded="false" id="octotreevulnhub" class="jstree-node  jstree-closed"><div unselectable="on" role="presentation" class="jstree-wholerow">&nbsp;</div><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://github.com/hyperreality/ctf-writeups/tree/master/vulnhub" tabindex="-1" data-download-url="/hyperreality/ctf-writeups/tree/master/vulnhub" data-download-filename="vulnhub" id="octotreevulnhub_anchor"><i class="jstree-icon jstree-themeicon tree jstree-themeicon-custom" role="presentation"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">vulnhub</font></font></a></li><li role="treeitem" aria-selected="false" aria-level="1" aria-labelledby="octotreeREADME.md_anchor" id="octotreeREADME.md" class="jstree-node  jstree-leaf jstree-last"><div unselectable="on" role="presentation" class="jstree-wholerow">&nbsp;</div><i class="jstree-icon jstree-ocl" role="presentation"></i><a class="jstree-anchor" href="https://github.com/hyperreality/ctf-writeups/blob/master/README.md" tabindex="-1" data-download-url="/hyperreality/ctf-writeups/blob/master/README.md" data-download-filename="README.md" id="octotreeREADME.md_anchor"><i class="jstree-icon jstree-themeicon blob book-icon medium-blue jstree-themeicon-custom" role="presentation"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">README.md</font></font></a></li></ul></div>
+        <a class="octotree-spin"> <span class="octotree-spin--loader"></span> </a>
+      </div>
+
+      <div class="octotree-view octotree-error-view">
+        <div class="octotree-view-header"></div>
+        <form class="octotree-view-body"><div class="message"></div></form>
+      </div>
+
+      <div class="octotree-view octotree-settings-view">
+        <div class="octotree-view-header"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">设置</font></font></div>
+        <form class="octotree-view-body">
+          <div>
+            <label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GitHub访问令牌</font></font></label>
+            <div class="octotree-token-actions">
+              <a class="octotree-create-token" target="_blank" tabindex="-1" href="https://github.com/settings/tokens/new?scopes=repo&amp;description=Octotree%20browser%20extension"><!--
+                --><span class="tooltipped tooltipped-n" aria-label="Generate new token"><i class="octotree-icon-key"></i></span><!--
+              --></a>
+              <a class="octotree-help" href="https://github.com/ovity/octotree#access-token" target="_blank" tabindex="-1">
+                <span class="tooltipped tooltipped-n" aria-label="Why is this needed?">
+                  <i class="octotree-icon-help"></i>
+                </span>
+              </a>
+            </div>
+            <input type="text" class="form-control input-block" data-store="TOKEN">
+          </div>
+
+          <div>
+            <div>
+              <label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">热键</font></font></label>
+              <div class="octotree-token-actions">
+                <a class="octotree-help" href="https://github.com/ovity/octotree#hotkeys" target="_blank" tabindex="-1">
+                  <span class="tooltipped tooltipped-n" aria-label="Learn more">
+                    <i class="octotree-icon-help"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+            <input type="text" autocomplete="off" spellcheck="false" autocapitalize="off" class="form-control" data-store="HOTKEYS">
+          </div>
+
+          <div>
+            <label><input type="checkbox" data-store="HOVEROPEN"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 悬停时打开侧边栏</font></font></label>
+          </div>
+          <div>
+            <label><input type="checkbox" data-store="LOADALL"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 立即加载整个树</font></font></label>
+          </div>
+          <div>
+            <label><input type="checkbox" data-store="NONCODE"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 显示在非代码页面中</font></font></label>
+          </div>
+          <div>
+            <label><input type="checkbox" data-store="ICONS"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 显示特定于文件的图标</font></font></label>
+          </div>
+          <div>
+            <label>
+              <input type="checkbox" data-store="PR"> Show pull request changes
+              <span class="octotree-disclaimer">Note: maximum of 300 files</span>
+            </label>
+          </div>
+
+          <div><button class="btn btn-primary">Apply settings</button></div>
+        </form>
+
+        <div class="octotree-ad-big">
+          <div>Octotree Pro Features</div>
+          <ul>
+            <li>Dark mode</li>
+            <li>File search</li>
+            <li>Change docking position</li>
+            <li>GitHub Enterprise</li>
+            <li>Multiple GitHub accounts</li>
+            <li>Safari browser</li>
+          </ul>
+          <div>
+            <a href="https://www.octotree.io/?utm_source=lite&amp;utm_medium=extension" target="_blank">
+              <i class="octotree-icon-github"></i>Try Octotree Pro for free
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="octotree-footer">
+      <div class="octotree-ad-small">
+        <a href="https://www.octotree.io/?utm_source=lite&amp;utm_medium=extension" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">免费试用Octotree Pro</font></font></a>
+      </div>
+    </div>
+  <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div></nav><div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html>

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load shoptags %}
+{% block title %}
+    订单 {{ form.order_id }} 支付确认
+{% endblock %}
+{% block body %}
+    <div class="row justify-content-md-center">
+        <div class="col-md-5">
+            <form method="post" action="{% url 'payment:check' %}?signature={{ sign }}">
+                {% for key,value in form.items %}
+                    <div class="row">
+                        <label class="col-sm-4 col-form-label">{{ key|form_readable }}</label>
+                        <div class="col-sm-8">
+                            <input type="text" readonly class="form-control-plaintext text-right" name="{{ key }}"
+                                   value="{{ value }}">
+                        </div>
+                    </div>
+                {% endfor %}
+                <button class="btn btn-block btn-primary mt-3">确认支付</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

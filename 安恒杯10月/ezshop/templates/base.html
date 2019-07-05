@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="//cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <title>{% block title %}{% endblock %} - ezshop</title>
+</head>
+<body>
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <span class="navbar-brand">ezshop</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'shop:index' %}">主页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'shop:myOrder' %}">我的订单</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                {% if user.is_authenticated %}
+                    <span class="navbar-text">{{ user.username }} 积分: {{ user.profile.point }}</span>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account:logout' %}">退出登录</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account:login' %}">登录</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+</div>
+<div class="container mt-3">
+    {% block body %}{% endblock %}
+</div>
+<script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+{% block script %}{% endblock %}
+</body>
+</html>

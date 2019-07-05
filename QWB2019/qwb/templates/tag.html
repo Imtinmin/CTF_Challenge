@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Tag - Q's Blog{% endblock %}
+
+{% block content %}
+
+    <div id="main" class="container X">
+        <ul>
+            {% for tag, blogs in tags_dic.items %}
+                <li class="entry-item">{{ tag }}</li>
+                {% for blog in blogs %}
+                    <li class="entry-item" itemscope="" itemtype="http://schema.org/Article">
+                        <div class="entry-meta">
+                            <time class="updated" itemprop="datePublished">{{ blog.created_time.date }}</time>
+                            <span itemprop="name"><a itemprop="url" href="{% url 'blog_detail' blog.id %}">{{ blog.title }}</a></span>
+                        </div>
+                        <div class="detail">
+
+                        </div>
+                    </li>
+                {% endfor %}
+                <br>
+            {% endfor %}
+        </ul>
+    </div>
+
+
+{% endblock %}

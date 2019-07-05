@@ -1,0 +1,12 @@
+version: '2'
+services:
+ web:
+   image: "li4n0/hctf_kouzone"
+   container_name: "hctf_kouzone"
+   build: .
+   ports:
+     - "10000:80"
+   volumes:
+     - "./web:/var/www/html"
+   environment:
+     - MYSQL_ADMIN_PASS=@hctf_k0u_z0ne

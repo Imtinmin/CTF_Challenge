@@ -1,0 +1,33 @@
+
+2019-06-14 0:28:58
+Array
+(
+    [Get] => Array
+        (
+            [_jpg] => 
+        )
+
+    [Post] => Array
+        (
+        )
+
+    [Cookie] => Array
+        (
+        )
+
+    [File] => Array
+        (
+        )
+
+    [Header] => Array
+        (
+            [Expect] => 100-continue
+            [Content-Length] => 39
+            [Host] => 39.108.36.103
+            [User-Agent] => curl/7.35.0
+        )
+
+)
+
+http://39.108.36.103/log_php.php?.jpg
+***************************************************************

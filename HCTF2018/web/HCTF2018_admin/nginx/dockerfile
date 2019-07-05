@@ -1,0 +1,4 @@
+FROM daocloud.io/library/nginx:1.13.0-alpine
+LABEL maintainer="ckj123"
+
+COPY conf.d/ /etc/nginx/conf.d

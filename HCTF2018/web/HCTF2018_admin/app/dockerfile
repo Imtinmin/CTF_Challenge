@@ -1,0 +1,14 @@
+FROM python:2.7.15-slim
+LABEL maintainer="ckj123"
+
+COPY hctf_flask/ /www/
+
+WORKDIR /www
+
+RUN apt-get update 
+RUN apt-get install -y gcc 
+    # python-devel &&\
+    # openssl-devel 
+RUN pip install -r requirements.txt
+
+CMD ["python", "run.py"]

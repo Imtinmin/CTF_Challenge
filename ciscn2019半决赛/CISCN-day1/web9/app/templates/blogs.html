@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block body %}
+	{% for blog, user in datum %}
+		<p>{{ user.username }}于{{ blog.timestamp.strftime("%Y/%m/%d %H:%M:%S") }}写道:</p>
+		<p>{{ blog.content }}</p>
+	{% endfor %}
+	<script src="/static/jquery.min.js">
+	</script>
+	<form action="/blogs" method="post">
+		<br>
+		<label>
+			<br>
+			<textarea name="content"></textarea>
+		</label>
+		<br>
+		<button>发布微博</button>
+	</form>
+	{% if username == 'admin' %}
+		<p>欢迎您, 管理员!</p>
+		<form action="/site_name" method="post">
+			<p>当前网站名字:  <span id="now_site"></span></p>
+			<label>您可以将网站名字修改为<input type="text" name="name"/></label>
+			<button>修改</button>
+		</form>
+	<script>
+		$(document).ready(function(){
+    $.ajax({url:"now_site_name",success:function(result){
+        $("#now_site").html(result);
+    }});
+});
+	</script>
+	{% endif %}
+{% endblock %}

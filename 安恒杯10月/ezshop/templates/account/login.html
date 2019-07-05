@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}
+    登录
+{% endblock %}
+{% block body %}
+    <div class="row justify-content-md-center">
+        <div class="col-md-6">
+            <form method="post">
+                {% include 'bs4-form.html' with form=form %}
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ next }}" />
+                <button type="submit" class="btn btn-primary">登录</button>
+                <a class="btn btn-link" href="{% url 'account:register' %}">注册</a>
+            </form>
+        </div>
+    </div>
+{% endblock %}

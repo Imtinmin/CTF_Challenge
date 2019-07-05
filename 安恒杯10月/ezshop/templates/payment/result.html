@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}
+    支付结果
+{% endblock %}
+{% block body %}
+    <div class="alert alert-{{ status }}" role="alert">
+        <h4>{{ result }}</h4>
+        3 秒后自动跳转回<a href="{% url 'shop:myOrder' %}">订单页面</a>
+    </div>
+{% endblock %}
+{% block script %}
+    <script>
+        setInterval(()=>{location.href='{% url 'shop:myOrder' %}'}, 3000)
+    </script>
+{% endblock %}

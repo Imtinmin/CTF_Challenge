@@ -1,0 +1,187 @@
+
+2019-06-14 12:52:40
+Array
+(
+    [Get] => Array
+        (
+        )
+
+    [Post] => Array
+        (
+        )
+
+    [Cookie] => Array
+        (
+        )
+
+    [File] => Array
+        (
+        )
+
+    [Header] => Array
+        (
+            [Expect] => 100-continue
+            [Content-Length] => 39
+            [Host] => 39.108.36.103
+            [User-Agent] => curl/7.35.0
+        )
+
+)
+
+http://39.108.36.103/log_php.php?
+***************************************************************
+2019-06-14 12:59:27
+Array
+(
+    [Get] => Array
+        (
+        )
+
+    [Post] => Array
+        (
+        )
+
+    [Cookie] => Array
+        (
+        )
+
+    [File] => Array
+        (
+        )
+
+    [Header] => Array
+        (
+            [Expect] => 100-continue
+            [Content-Length] => 956
+            [Host] => 39.108.36.103
+            [User-Agent] => curl/7.35.0
+        )
+
+)
+
+http://39.108.36.103/log_php.php?
+***************************************************************
+2019-06-14 13:00:20
+Array
+(
+    [Get] => Array
+        (
+        )
+
+    [Post] => Array
+        (
+        )
+
+    [Cookie] => Array
+        (
+        )
+
+    [File] => Array
+        (
+        )
+
+    [Header] => Array
+        (
+            [Expect] => 100-continue
+            [Content-Length] => 7115
+            [Host] => 39.108.36.103
+            [User-Agent] => curl/7.35.0
+        )
+
+)
+
+http://39.108.36.103/log_php.php?
+***************************************************************
+2019-06-14 13:00:29
+Array
+(
+    [Get] => Array
+        (
+        )
+
+    [Post] => Array
+        (
+        )
+
+    [Cookie] => Array
+        (
+        )
+
+    [File] => Array
+        (
+        )
+
+    [Header] => Array
+        (
+            [Expect] => 100-continue
+            [Content-Length] => 7115
+            [Host] => 39.108.36.103
+            [User-Agent] => curl/7.35.0
+        )
+
+)
+
+http://39.108.36.103/log_php.php?
+***************************************************************
+2019-06-14 13:01:46
+Array
+(
+    [Get] => Array
+        (
+        )
+
+    [Post] => Array
+        (
+        )
+
+    [Cookie] => Array
+        (
+        )
+
+    [File] => Array
+        (
+        )
+
+    [Header] => Array
+        (
+            [Expect] => 100-continue
+            [Content-Length] => 698
+            [Host] => 39.108.36.103
+            [User-Agent] => curl/7.35.0
+        )
+
+)
+
+http://39.108.36.103/log_php.php?
+***************************************************************
+2019-06-14 13:02:31
+Array
+(
+    [Get] => Array
+        (
+        )
+
+    [Post] => Array
+        (
+        )
+
+    [Cookie] => Array
+        (
+        )
+
+    [File] => Array
+        (
+        )
+
+    [Header] => Array
+        (
+            [Expect] => 100-continue
+            [Content-Length] => 9853
+            [Host] => 39.108.36.103
+            [User-Agent] => curl/7.35.0
+        )
+
+)
+
+http://39.108.36.103/log_php.php?
+***************************************************************

@@ -1,0 +1,9 @@
+User-agent: Baiduspider
+Disallow: /bdhfyusdf
+Disallow: /index?
+Disallow: /flaggalf?
+Disallow: /Are you OK?
+Disallow: /NEWbi?
+Disallow: /ndsufbewhjubdvse/niubi/ii4375uhnfsv/admin.php?
+Disallow: /google
+Disallow: /PrivatePhotos
