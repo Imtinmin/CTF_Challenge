@@ -1,2 +1,2 @@
 # ctf-question
-放一些CTF题目
+收集一些比赛题目
