@@ -1,8 +1,0 @@
-//getsign
-strlen($secret) == 30
-getsign($secret.$_GET['param']."scan")
-
-
-//checksign
-md5($secret.$filename.$action) == $sign	
-return True
