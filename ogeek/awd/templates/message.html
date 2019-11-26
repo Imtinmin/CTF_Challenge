@@ -1,0 +1,32 @@
+{% extends "index.html" %}
+
+
+
+    <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+    
+            <a href="/" class="mdl-layout__tab is-active">Home</a>
+            <a href="#message" class="mdl-layout__tab">message board</a>
+            <a href="#getvdot" class="mdl-layout__tab">get vdot</a>
+            <a href="/hello" class="mdl-layout__tab">hello</a>
+            <!-- <a href="/flag" class="mdl-layout__tab">download</a> -->
+    
+        </div>
+
+
+
+    {% block message %}
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                <a class="material-icons" href="/#clearmessage">
+                clear
+                </a>
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text">
+                  <h4>{{ status }}</h4><br>
+              <h5>
+                      {{ msg }}
+                  
+              </h5>
+              </div>
+            </div>
+          </section>
+    {% endblock %}

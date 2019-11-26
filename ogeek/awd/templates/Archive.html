@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+
+{% block title %}{{ Archive['title'] }}{% endblock %}
+
+{% block content %}
+  <main class="mdl-layout__content">
+    <div class="mdl-layout__tab-panel is-active" style="height: 500px;">
+      <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+        <div class="mdl-card mdl-cell mdl-cell--12-col">
+          <div class="mdl-card__supporting-text">
+            <h4>{{ Archive['content'] }}</h4>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+{% endblock %}
+
+{% block active %}
+    <a href="/" class="mdl-layout__tab">Home</a>
+    <a href="#" class="mdl-layout__tab is-active">Archives</a>
+{% endblock %}
