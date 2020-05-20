@@ -23,7 +23,7 @@ setup(
         'django-reversion>=2.0.0',
         'django-formtools>=1.0',
         'django-import-export>=0.5.1',
-        'httplib2==0.9.2',
+        'httplib2==0.18.0',
         'future',
         'six'
     ],
