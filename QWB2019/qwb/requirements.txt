@@ -1,6 +1,6 @@
 asn1crypto==0.24.0
 cffi==1.11.5
-cryptography==2.4.2
+cryptography==3.2
 defusedxml==0.5.0
 diff-match-patch==20181111
 Django==2.1.5
